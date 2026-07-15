@@ -4,6 +4,30 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v2.3.0 - Landing Page Final Art Direction (Pre-Production Lock)
+**Date**: 2026-07-16
+**Status**: Beta (Landing Page v1.0 Pre-Production Lock)
+
+**What's New**:
+- Sprint 11.6.1: Final art direction refinement (12 tasks)
+- Background rhythm: Feather transitions, alternating white/black
+- Hero: Overlay dikurangi (bg-black/50 → bg-black/30), foto lebih terbaca
+- CTA buttons: Semua solid, kontras tinggi (bukan ghost/transparent)
+- Services: Icon storefront untuk Studio, icon representatif
+- Shop: Gradient lebih subtle
+- Gallery: CSS masonry editorial layout (variasi tinggi gambar)
+- Artist: Background putih bersih
+- CTA: Solid black (#0a0a0a), focus point
+- Reviews: Editorial layout (2 besar + 3 kecil), bintang gold #D4AF37
+- Footer: Alamat clickable ke Google Maps
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Added `.ai/journal/sprint-11.6.1.md`
+
+---
+
 ### v2.2.0 - Landing Page Art Direction Refinement (FINAL)
 **Date**: 2026-07-15
 **Status**: Beta (Landing Page v1.0 Lock Candidate)
@@ -325,7 +349,7 @@ Jika issues found di production:
 
 ## Version Tracking
 
-Current version: **v2.2.0-beta**
+Current version: **v2.3.0-beta**
 
 ```
 Legend:
@@ -348,7 +372,8 @@ Legend:
 | v1.9.0  | 2026-07-15 | ✅ Complete | Trust Section (Complete Redesign) |
 | v2.0.0  | 2026-07-15 | ✅ Complete | Footer + Landing Page Complete |
 | v2.1.0  | 2026-07-15 | ✅ Complete | Landing Page Final Polish & UX Audit (91.5/100) |
-| v2.2.0  | TBD        | ⏳ Planned | Shop Page (Tattoo Supply) |
+| v2.2.0  | 2026-07-15 | ✅ Complete | Art Direction Refinement (v1.0 Lock Candidate) |
+| v2.3.0  | 2026-07-16 | ✅ Complete | Final Art Direction — Pre-Production Lock |
 
 ## Semantic Versioning
 
