@@ -31,8 +31,21 @@ Tracking progress pengembangan Ananniti Tattoo Bali.
 | 11.9 - Final Art Direction (Final) | ✅ Complete | 100% | 2026-07-17 | 2026-07-17 |
 | 11.10 - Final Art Direction (Production) | ✅ Complete | 100% | 2026-07-15 | 2026-07-15 |
 | 11.11 - Final Art Direction QA | ✅ Complete | 100% | 2026-07-15 | 2026-07-15 |
-| 12 - Tattoo Supply Shop | ⏳ Planned | 0% | TBD | TBD |
-| 13 - Deployment | ⏳ Planned | 0% | TBD | TBD |
+| 12.0 - Shop Foundation | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.1 - Product Card System | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.2 - Category Filter System | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.3 - Editorial Product Grid | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.4 - Product Detail Foundation | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.5 - Product Gallery Experience | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.6 - Shop Discovery Experience | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.7 - Shop UX Polish & Pagination | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.8 - Shop UX Redesign (Editorial Collection) | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 12.X - Shop Experience Redesign (Final IA) | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 13.0 - Shop Architecture Redesign (Collection-First) | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 13.1 - Category Page Redesign (Editorial) | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 13.2 - Shop Editorial Showroom | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 13.3 - Product Discoverability & Merchandising | ✅ Complete | 100% | 2026-07-16 | 2026-07-16 |
+| 14 - Deployment | ⏳ Planned | 0% | TBD | TBD |
 
 ## Sprint 00 Achievements
 
@@ -690,3 +703,86 @@ CONSULTATION → FOOTER           [BLACK]
 
 ### Final Score: 96/100
 **Recommendation**: Landing Page v1.0 SIAP DI-LOCK sebelum Sprint 12
+
+## Hari Ini (2026-07-16) — Shop Development
+
+### Sprint Yang Diselesaikan
+| Sprint | Deskripsi | Status |
+|--------|-----------|--------|
+| 12.0 | Shop Foundation — Route, Controller, Hero, Category Filter, Featured Collection, Product Grid, CTA, Footer | ✅ |
+| 12.1 | Product Card System — Reusable component dengan @props (image, title, category, price, badge, href) | ✅ |
+| 12.2 | Category Filter System — Alpine.js state, horizontal scroll, aria-pressed | ✅ |
+| 12.3 | Editorial Product Grid — Staggered layout, section title, CTA | ✅ |
+| 12.4 | Product Detail Foundation — 4 sections: Hero, Info, Why Artists, Related Products | ✅ |
+| 12.5 | Product Gallery Experience — Thumbnail gallery (Alpine.js), product highlights, horizontal editorial "Why Artists" | ✅ |
+| 12.6 | Shop Discovery Experience — Search toolbar, sort dropdown, result info | ✅ |
+| 12.7 | Shop UX Polish — Pagination, product count, loading skeleton, hover polish, empty states | ✅ |
+| 12.8 | Shop UX Redesign — Category collection cards, editorial staggered grid, load more | ✅ |
+| 12.X | Shop Experience Redesign (Final IA) — Category cards editorial layout, scroll to collection | ✅ |
+| 13.0 | Shop Architecture Redesign — Collection-first, new route /shop/{category}, category page | ✅ |
+| 13.1 | Category Page Redesign — Editorial asymmetric hero, immediate products | ✅ |
+| 13.2 | Shop Editorial Showroom — All categories in one page, varied section layouts | ✅ |
+| 13.3 | Product Discoverability — Badges, "View All (N)" links, merchandising | ✅ |
+
+### File Yang Dibuat Hari Ini
+- `resources/views/pages/shop.blade.php` — Shop showroom page
+- `resources/views/pages/shop-detail.blade.php` — Product detail page
+- `resources/views/pages/shop-category.blade.php` — Category page
+- `resources/views/components/shop/product-card.blade.php` — Reusable product card
+- `resources/views/components/shop/category-filter.blade.php` — Category filter
+- `resources/views/components/shop/loading-skeleton.blade.php` — Loading skeleton
+- `resources/views/components/layout/footer.blade.php` — Reusable footer
+- `app/Http/Controllers/ShopController.php` — Shop controller
+
+### File Yang Diubah Hari Ini
+- `resources/views/pages/home.blade.php` — Footer → component
+- `routes/web.php` — Added /shop, /shop/{category}, /shop/product/{slug}
+
+### Build Status Terakhir
+```
+✓ Build successful (1.33s)
+✓ CSS: 101.47 kB (gzip 17.73 kB)
+✓ JS: 92.32 kB (gzip 33.89 kB)
+✓ Errors: 0
+✓ Warnings: 0
+```
+
+### Shop Sections (Final — Editorial Showroom)
+1. Hero — Full-bleed photography, "Curated for the Artist" (dark)
+2. Machines — Image left + 2 products right (white)
+3. Ink — Horizontal 4-col showcase (light gray)
+4. Needles — Image right + 2 products left (white)
+5. Furniture — Featured product + CTA (dark)
+6. Others — Centered minimal grid (white)
+7. CTA — "Not Sure What You Need?" (dark)
+8. Footer — Reused component
+
+### Product Detail Sections (Final)
+1. Editorial Hero — 2-col asymmetric, thumbnail gallery, highlights
+2. Product Info — Description + Specifications
+3. Why Artists — Horizontal editorial list
+4. Related Products — 4 product cards
+5. CTA + Footer
+
+### Components Created
+```blade
+{{-- Product Card --}}
+<x.shop.product-card image="..." title="..." category="..." price="..." badge="..." href="..." />
+
+{{-- Category Filter --}}
+<x.shop.category-filter :categories="[...]" active="all" />
+
+{{-- Loading Skeleton --}}
+<x.shop.loading-skeleton :count="6" />
+
+{{-- Footer --}}
+<x.layout.footer />
+```
+
+### Routes
+```
+GET /                    → HomeController@index
+GET /shop                → ShopController@index (Editorial Showroom)
+GET /shop/{category}     → ShopController@category (Category Page)
+GET /shop/product/{slug} → ShopController@show (Product Detail)
+```

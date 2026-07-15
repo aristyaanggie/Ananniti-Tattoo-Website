@@ -4,6 +4,36 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v3.3.0 — Shop Editorial Showroom + Discoverability
+**Date**: 2026-07-16
+**Status**: Beta (Shop Complete — Editorial Showroom)
+
+**What's New**:
+- Sprint 12.0–12.8: Shop Foundation, Product Card, Category Filter, Editorial Grid, Product Detail, Gallery Experience, UX Polish
+- Sprint 13.0–13.3: Shop Architecture Redesign, Category Redesign, Editorial Showroom, Discoverability
+- Shop redesigned as single-page Editorial Showroom (no category pages)
+- 5 editorial sections: Machines (image left), Ink (horizontal), Needles (image right), Furniture (featured), Others (grid)
+- Product badges: Best Seller, New, Limited, Staff Pick, Artist Pick
+- "View All (N)" links with product counts for scalability
+- Reusable components: Product Card, Category Filter, Loading Skeleton, Footer
+- Product Detail: Thumbnail gallery, highlights, horizontal editorial "Why Artists"
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `resources/views/pages/shop.blade.php` (editorial showroom)
+- Created `resources/views/pages/shop-detail.blade.php`
+- Created `resources/views/pages/shop-category.blade.php`
+- Created `resources/views/components/shop/product-card.blade.php`
+- Created `resources/views/components/shop/category-filter.blade.php`
+- Created `resources/views/components/shop/loading-skeleton.blade.php`
+- Created `resources/views/components/layout/footer.blade.php`
+- Updated `app/Http/Controllers/ShopController.php`
+- Updated `routes/web.php`
+- Updated `resources/views/pages/home.blade.php` (footer component)
+- Added `.ai/journal/sprint-12.0.md` through `sprint-13.3.md`
+
+---
+
 ### v2.6.0 — Final Art Direction QA (Production Lock Candidate)
 **Date**: 2026-07-15
 **Status**: Beta (Landing Page v1.0 PRODUCTION LOCK CANDIDATE)
@@ -416,7 +446,7 @@ Jika issues found di production:
 
 ## Version Tracking
 
-Current version: **v2.6.0**
+Current version: **v3.3.0**
 
 ```
 Legend:
@@ -444,6 +474,10 @@ Legend:
 | v2.4.0  | 2026-07-17 | ✅ Complete | Final Art Direction — Final Before Shop (95/100) |
 | v2.5.0  | 2026-07-15 | ✅ Complete | Final Art Direction — Production Candidate |
 | v2.6.0  | 2026-07-15 | ✅ Complete | Final Art Direction QA — Production Lock (96/100) |
+| v3.0.0  | 2026-07-16 | ✅ Complete | Shop Foundation + Product Card + Category Filter |
+| v3.1.0  | 2026-07-16 | ✅ Complete | Product Detail + Editorial Grid |
+| v3.2.0  | 2026-07-16 | ✅ Complete | Shop Architecture Redesign (Collection-First) |
+| v3.3.0  | 2026-07-16 | ✅ Complete | Shop Editorial Showroom + Discoverability |
 
 ## Semantic Versioning
 

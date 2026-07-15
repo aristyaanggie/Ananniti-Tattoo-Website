@@ -37,16 +37,18 @@
 
         <div class="grid grid-cols-2 gap-5 md:gap-6">
           <a href="/shop/product/tattoo-machine-x1" class="group cursor-pointer">
-            <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
               <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Machine X1" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">Best Seller</span>
             </div>
             <p class="text-[12px] uppercase tracking-[0.15em] text-text-muted mb-1">Tattoo Machine</p>
             <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Tattoo Machine X1</h3>
             <p class="text-[13px] font-semibold text-text-primary">$320.00</p>
           </a>
           <a href="/shop/product/rotary-cartridge-machine" class="group cursor-pointer">
-            <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
               <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Rotary Cartridge Machine" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">New</span>
             </div>
             <p class="text-[12px] uppercase tracking-[0.15em] text-text-muted mb-1">Tattoo Machine</p>
             <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Rotary Cartridge Machine</h3>
@@ -54,8 +56,8 @@
           </a>
         </div>
 
-        <a href="#machines" class="inline-flex items-center gap-2 mt-8 text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200">
-          View All Machines
+        <a href="/shop/machines" class="inline-flex items-center gap-2 mt-8 text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200">
+          View All Machines <span class="text-text-muted font-normal">(24)</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
@@ -73,24 +75,26 @@
         <p class="text-[11px] uppercase tracking-[0.3em] text-text-muted mb-4">Ink</p>
         <h2 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight" style="font-family: var(--font-heading);">Tattoo Ink</h2>
       </div>
-      <a href="#ink" class="text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200 hidden md:inline-flex items-center gap-2">
-        View All
+      <a href="/shop/inks" class="text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200 hidden md:inline-flex items-center gap-2">
+        View All Ink <span class="text-text-muted font-normal">(18)</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
       <a href="/shop/product/premium-black-ink" class="group cursor-pointer">
-        <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-white">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-white">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Premium Black Ink" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+          <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">Best Seller</span>
         </div>
         <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">Tattoo Ink</p>
         <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Premium Black Ink</h3>
         <p class="text-[13px] font-semibold text-text-primary">$45.00</p>
       </a>
       <a href="/shop/product/gradient-ink-set" class="group cursor-pointer">
-        <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-white">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-white">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Gradient Ink Set" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+          <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">Staff Pick</span>
         </div>
         <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">Tattoo Ink</p>
         <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Gradient Ink Set</h3>
@@ -105,8 +109,9 @@
         <p class="text-[13px] font-semibold text-text-primary">$35.00</p>
       </a>
       <a href="/shop/product/color-set" class="group cursor-pointer">
-        <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-white">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-white">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Color Set" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+          <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">Limited</span>
         </div>
         <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">Tattoo Ink</p>
         <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Color Set</h3>
@@ -130,8 +135,9 @@
 
         <div class="grid grid-cols-2 gap-5 md:gap-6">
           <a href="/shop/product/cartridge-needles" class="group cursor-pointer">
-            <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
               <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Cartridge Needles" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">Best Seller</span>
             </div>
             <p class="text-[12px] uppercase tracking-[0.15em] text-text-muted mb-1">Needle</p>
             <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Cartridge Needles</h3>
@@ -147,8 +153,8 @@
           </a>
         </div>
 
-        <a href="#needles" class="inline-flex items-center gap-2 mt-8 text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200">
-          View All Needles
+        <a href="/shop/needles" class="inline-flex items-center gap-2 mt-8 text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200">
+          View All Needles <span class="text-text-muted font-normal">(15)</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
@@ -182,10 +188,16 @@
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-[1.1]" style="font-family: var(--font-heading);">Studio Furniture</h2>
         <p class="text-[15px] text-white/60 leading-relaxed mb-8 max-w-md">Professional chairs, tables, and workspace essentials designed for comfort during long tattoo sessions.</p>
 
-        <a href="/shop/product/tattoo-chair" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-lg w-fit">
-          View Product
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
+        <div class="flex items-center gap-4">
+          <a href="/shop/product/tattoo-chair" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-lg">
+            View Product
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+          <a href="/shop/furniture" class="text-[13px] font-semibold text-white/60 hover:text-white transition-colors duration-200 inline-flex items-center gap-2">
+            View All <span class="text-white/40 font-normal">(8)</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+        </div>
       </div>
 
     </div>
@@ -203,8 +215,9 @@
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
       <a href="/shop/product/power-supply" class="group cursor-pointer">
-        <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Power Supply" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+          <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">Artist Pick</span>
         </div>
         <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">Others</p>
         <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">Power Supply</h3>
@@ -227,12 +240,20 @@
         <p class="text-[13px] font-semibold text-text-primary">$18.00</p>
       </a>
       <a href="/shop/product/led-ring-light" class="group cursor-pointer">
-        <div class="aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 bg-[#f5f5f0]">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="LED Ring Light" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" />
+          <span class="absolute top-3 left-3 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] bg-black text-white">New</span>
         </div>
         <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">Others</p>
         <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">LED Ring Light</h3>
         <p class="text-[13px] font-semibold text-text-primary">$65.00</p>
+      </a>
+    </div>
+
+    <div class="text-center mt-12 md:mt-16">
+      <a href="/shop/others" class="inline-flex items-center gap-2 text-[13px] font-semibold text-text-primary hover:text-text-secondary transition-colors duration-200">
+        View All Essentials <span class="text-text-muted font-normal">(12)</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
     </div>
 
