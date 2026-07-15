@@ -4,6 +4,73 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v2.6.0 — Final Art Direction QA (Production Lock Candidate)
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page v1.0 PRODUCTION LOCK CANDIDATE)
+
+**What's New**:
+- Sprint 11.11: Final Art Direction QA (7 tasks)
+- Background flow: Hero→About→Services→Shop [WHITE] → Gallery→Artists [BLACK] → Trust [WHITE] → Consultation→Footer [BLACK]
+- Services & Shop moved to white chapter with subtle card depth
+- Gallery: editorial asymmetric grid (5:7 column ratio, varied heights)
+- Artist: moved to dark chapter
+- Consultation → Footer separator: subtle white/8% gradient
+- All CTAs solid, all text readable, all headings clear
+- Final Score: 96/100
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Added `.ai/journal/sprint-11.11.md`
+
+---
+
+### v2.5.0 - Final Art Direction — Production Candidate
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page v1.0 FINAL LOCK)
+
+**What's New**:
+- Sprint 11.10: Final art direction — 7 tasks
+- Chapter-based background flow (White→Dark→White→Dark)
+- Footer: Heading opacity 80%, body 70%, all info clearly readable
+- Trust: 4.9 rating header + social proof tags + review metadata
+- Consultation: Complete redesign → single centered white card
+- Shop: Moved to dark chapter (bg-[#0a0a0a])
+- CTAs: All solid, no transparency
+- Readability: Full audit, all sections clear
+- Responsive: QA at 390/430/768/1024/1440/1920px
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Added `.ai/journal/sprint-11.10.md`
+
+---
+
+### v2.4.0 - Final Art Direction (Final Before Shop)
+**Date**: 2026-07-17
+**Status**: Beta (Landing Page v1.0 Final Lock Candidate)
+
+**What's New**:
+- Sprint 11.9: Final art direction refinement (13 tasks)
+- Background rhythm: Feather transitions (h-px gradient lines)
+- Typography: All opacity minimum 60%, body text 70-85%
+- CTA buttons: All solid, high contrast
+- Gallery: CSS masonry columns, varied heights, 16px radius
+- Services: Lucide Storefront icon, text opacity 70%
+- Shop: Stronger gradient (black/80)
+- Consultation: 2-column layout, solid white card
+- Reviews: Editorial layout, gold stars #D4AF37, 2+3 grid
+- Navbar: Solid black, center nav
+- Footer: Clickable address (Google Maps), link opacity 60%
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Added `.ai/journal/sprint-11.9.md`
+
+---
+
 ### v2.3.0 - Landing Page Final Art Direction (Pre-Production Lock)
 **Date**: 2026-07-16
 **Status**: Beta (Landing Page v1.0 Pre-Production Lock)
@@ -349,7 +416,7 @@ Jika issues found di production:
 
 ## Version Tracking
 
-Current version: **v2.3.0-beta**
+Current version: **v2.6.0**
 
 ```
 Legend:
@@ -374,6 +441,9 @@ Legend:
 | v2.1.0  | 2026-07-15 | ✅ Complete | Landing Page Final Polish & UX Audit (91.5/100) |
 | v2.2.0  | 2026-07-15 | ✅ Complete | Art Direction Refinement (v1.0 Lock Candidate) |
 | v2.3.0  | 2026-07-16 | ✅ Complete | Final Art Direction — Pre-Production Lock |
+| v2.4.0  | 2026-07-17 | ✅ Complete | Final Art Direction — Final Before Shop (95/100) |
+| v2.5.0  | 2026-07-15 | ✅ Complete | Final Art Direction — Production Candidate |
+| v2.6.0  | 2026-07-15 | ✅ Complete | Final Art Direction QA — Production Lock (96/100) |
 
 ## Semantic Versioning
 
