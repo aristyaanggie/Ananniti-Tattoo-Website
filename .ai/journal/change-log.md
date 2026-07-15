@@ -1,0 +1,375 @@
+# Change Log
+
+Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
+
+## Version History
+
+### v2.2.0 - Landing Page Art Direction Refinement (FINAL)
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page v1.0 Lock Candidate)
+
+**What's New**:
+- Sprint 11.6: Complete art direction refinement (12 tasks)
+- Navbar: True center navigation, flex-1 layout
+- Hero: Identity label "Est. MMXII — Bali, Indonesia"
+- Hero: CTA buttons direct links (bukan component)
+- Services: Bug fix state independen + editorial visual
+- Shop: Editorial asymmetric grid (large + small + wide)
+- Gallery: Editorial photography exhibition (mixed aspect ratios)
+- Artist: Image dominance 45%, two-line dramatic name
+- Trust: Complete redesign — editorial list, bukan card grid
+- CTA: Centered headline dominant, whitespace sangat lega
+- Visual Rhythm: Section backgrounds bervariasi (white → #fafafa → #111 → #0a0a0a)
+- Animation: Duration 250ms (dari 300ms)
+- Final Score: 94.1 / 100
+
+**Changes**:
+- Updated `resources/views/components/layout/navbar.blade.php` (complete rewrite)
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Updated `resources/css/app.css` (animation duration)
+- Added `.ai/journal/sprint-11.6.md` (audit report)
+
+**Known Issues**: None
+
+**Next**: Sprint 12 — Tattoo Supply Shop
+
+---
+
+### v2.1.0 - Landing Page Final Polish & UX Audit
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page Final Polish)
+
+**What's New**:
+- Sprint 11.5: Landing Page Final Polish & UX Audit (14 audits)
+- Services cards: Added `relative` for top accent line rendering
+- Hero CTA: Changed to white button for visibility on dark overlay
+- Hero Secondary: Changed to ghost button (transparent + border)
+- Section titles: Standardized to `size="sm"` for Services & Supply
+- Gallery/Supply links: Added `cursor-pointer` for consistency
+- Services aria-controls: Removed invalid ARIA references
+- Button hover: Added scale effect (1.02 hover, 0.98 active)
+- CSS transitions: Standardized to 200ms for responsiveness
+- Final Landing Page Score: 91.5 / 100
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (10 fixes)
+- Updated `resources/css/app.css` (3 improvements)
+- Added `.ai/journal/sprint-11.5.md` (audit report)
+
+**Known Issues**: None
+
+**Next**: Manual QA Review → v2.2.0 (Shop Page)
+
+---
+
+### v2.0.0 - Footer + Landing Page Complete
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page Complete)
+
+**What's New**:
+- Footer editorial luxury (4 kolom, responsive)
+- Brand section (logo + nama + description)
+- Quick Links (6 anchor links)
+- Studio Information (address, hours, phone, email)
+- Connect (Instagram, WhatsApp, TikTok, Facebook)
+- Bottom Bar (copyright + "Made with passion in Bali")
+- LANDING PAGE SELESAI (Hero hingga Footer)
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (Footer implementation)
+- Added `.ai/journal/sprint-11.md`
+
+**Known Issues**: None
+
+**Next**: Final Landing Page Review & QA
+
+---
+
+### v1.9.0 - Trust Section (Complete Redesign)
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page Update)
+
+**What's New**:
+- Trust Section complete redesign dari Client Stories
+- Section Header: Eyebrow + Heading + Description
+- Trust Overview: 4 metrics placeholder (Google Rating, Total Reviews, Years Experience, Countries Served)
+- Featured Reviews: 6 review cards dengan foto tattoo (3×2 grid)
+- Trust Sources: Google Reviews, Instagram Community, Returning Clients
+- Closing Statement
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Added `public/images/reviews/` (6 placeholder SVGs)
+- Added `.ai/journal/sprint-10x.md`
+
+**Known Issues**: None
+
+**Next Version**: v2.0.0 - Footer Section
+
+---
+
+### v1.8.0 - Client Stories (Complete Redesign)
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page Update)
+
+**What's New**:
+- Client Stories complete redesign dari Testimonials
+- One Hero Per Section (hanya 1 testimonial tampil)
+- Review sebagai HERO (text-xl/2xl/3xl, italic)
+- Alpine.js navigation (avatar dots + nama)
+- Transisi halus (opacity + translateY, 250ms)
+- Whitespace sangat lega (py-32/48/64)
+- Tidak ada card, grid, border, shadow
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (complete rewrite)
+- Added `.ai/journal/sprint-10r.md`
+
+**Known Issues**: None
+
+**Next Version**: v1.9.0 - Footer Section
+
+---
+
+### v1.7.1 - Testimonials Refinement
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page Update)
+
+**What's New**:
+- Testimonials refinement berdasarkan QA findings
+- Card feeling dihilangkan (editorial, bukan e-commerce)
+- Visual hierarchy: Stars → Review → Client → Country
+- Review menjadi elemen paling dominan
+- Placeholder .jpeg (SVG dihapus)
+- Spacing lebih lega (breathing room)
+- Hover sangat halus (hanya border)
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (Testimonials refinement)
+- Removed `public/images/testimonials/*.svg`
+
+**Known Issues**: None
+
+**Next Version**: v1.8.0 - Footer Section
+
+---
+
+### v1.7.0 - Testimonials Section
+**Date**: 2026-07-15
+**Status**: Beta (Landing Page Update)
+
+**What's New**:
+- Testimonials section dengan 3 client reviews
+- Dark theme (bg-[#0a0a0a]) konsisten dengan Artists & CTA
+- Card styling: border tipis, radius kecil, hover subtle
+- Star rating (white, bukan gold)
+- Responsive: 3 desktop, 2 tablet, 1 mobile
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (Testimonials section)
+- Added `public/images/testimonials/` (3 placeholder SVGs)
+- Added `.ai/journal/sprint-10.md`
+
+**Known Issues**: None
+
+**Next Version**: v1.8.0 - Footer Section
+
+---
+
+### v1.6.0 - Consultation CTA
+**Date**: 2026-07-14
+**Status**: Beta (Landing Page Update)
+
+**What's New**:
+- Consultation CTA section sebagai penutup sebelum Testimonials
+- Black background dengan centered layout
+- WhatsApp CTA dengan MessageCircle icon
+- Whitespace sangat lega untuk premium feel
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (CTA section)
+- Added `.ai/journal/sprint-09.md`
+
+**Known Issues**: None
+
+**Next Version**: v1.7.0 - Testimonials Section
+
+---
+
+### v1.5.0 - Artists Editorial
+**Date**: 2026-07-13
+**Status**: Beta (Landing Page Update)
+
+**What's New**:
+- Gallery section dengan 6 portfolio items
+- Artists section dengan featured artist editorial layout
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (Gallery + Artists)
+- Added placeholder images for gallery and artists
+
+**Known Issues**: None
+
+---
+
+### v0.0.1 - Initial Setup
+**Date**: 2026-07-10
+**Status**: Alpha (Project Initialization)
+
+**What's New**:
+- Initial project setup dengan Laravel 12
+- Documentation structure (.ai folder)
+- Environment verification complete
+- Vite build process working
+- Tailwind CSS integrated
+
+**Changes**:
+- Created 31 documentation files
+- Created .ai folder structure
+- Verified all dependencies
+
+**Known Issues**: None
+
+**Next Version**: v0.1.0 - Landing Page & Navigation
+
+---
+
+## Version Naming
+
+Format: `v[Major].[Minor].[Patch]`
+
+- **Major**: Significant feature release atau major refactor
+- **Minor**: New features, minor changes
+- **Patch**: Bug fixes, documentation updates
+
+## Release Schedule
+
+- Beta: When first MVP features complete
+- RC (Release Candidate): When ready untuk testing
+- Production: When fully tested dan approved
+
+## Deprecation Policy
+
+Features deprecated akan:
+1. Marked as @deprecated di code
+2. Documented di release notes
+3. Supported untuk minimum 2 major versions
+4. Removed di 3rd major version
+
+## Breaking Changes
+
+Breaking changes akan:
+1. Clearly documented
+2. Only di major versions
+3. Accompanied by migration guide
+4. Announced di advance
+
+## Changelog Format
+
+Setiap version harus include:
+
+```
+### v[Version] - [Release Date]
+**Status**: [Alpha/Beta/RC/Stable]
+
+**Features**:
+- [New feature 1]
+- [New feature 2]
+
+**Improvements**:
+- [Improvement 1]
+- [Improvement 2]
+
+**Bug Fixes**:
+- [Bug fix 1]
+- [Bug fix 2]
+
+**Breaking Changes**:
+- [Breaking change 1]
+
+**Migration Guide**:
+[How to upgrade]
+
+**Known Issues**:
+- [Known issue 1]
+
+**Dependencies**:
+- [Updated dependencies]
+```
+
+## Release Process
+
+1. Create release branch
+2. Update version numbers
+3. Update changelog
+4. Run full test suite
+5. Create release tag
+6. Generate release notes
+7. Deploy jika applicable
+8. Announce release
+
+## Rollback Process
+
+Jika issues found di production:
+1. Revert ke previous version
+2. Fix issue di separate branch
+3. Create hotfix release
+4. Deploy hotfix
+
+## Documentation Updates
+
+- Update documentation untuk setiap release
+- Keep API documentation current
+- Update README dengan new features
+- Archive old documentation jika needed
+
+## Version Tracking
+
+Current version: **v2.2.0-beta**
+
+```
+Legend:
+✅ = Completed
+🔄 = In Progress
+⏳ = Planned
+🚫 = Cancelled
+```
+
+## Release Timeline
+
+| Version | Target Date | Status | Notes |
+|---------|------------|--------|-------|
+| v0.0.1  | 2026-07-10 | ✅ Complete | Initial setup |
+| v1.5.0  | 2026-07-13 | ✅ Complete | Landing page (Hero, About, Services, Supply, Gallery, Artists) |
+| v1.6.0  | 2026-07-14 | ✅ Complete | Consultation CTA |
+| v1.7.0  | 2026-07-15 | ✅ Complete | Testimonials Section |
+| v1.7.1  | 2026-07-15 | ✅ Complete | Testimonials Refinement |
+| v1.8.0  | 2026-07-15 | ✅ Complete | Client Stories (Complete Redesign) |
+| v1.9.0  | 2026-07-15 | ✅ Complete | Trust Section (Complete Redesign) |
+| v2.0.0  | 2026-07-15 | ✅ Complete | Footer + Landing Page Complete |
+| v2.1.0  | 2026-07-15 | ✅ Complete | Landing Page Final Polish & UX Audit (91.5/100) |
+| v2.2.0  | TBD        | ⏳ Planned | Shop Page (Tattoo Supply) |
+
+## Semantic Versioning
+
+Project ini follow Semantic Versioning 2.0.0:
+
+- **MAJOR** version ketika membuat incompatible API changes
+- **MINOR** version ketika add functionality di backward compatible manner
+- **PATCH** version ketika membuat backward compatible bug fixes
+
+## Commit Messages untuk Changes
+
+Setiap commit harus reference version-nya:
+
+```
+v0.1.0: Add landing page hero section
+v0.1.0: Fix responsive navigation menu
+v0.2.0: Add portfolio gallery component
+```
+
+---
+
+**Last Updated**: 2026-07-15
+**Current Version**: v2.0.0-beta
+**Next**: Final Landing Page Review & QA

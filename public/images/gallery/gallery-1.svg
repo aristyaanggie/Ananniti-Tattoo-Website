@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#333333"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg1)"/>
+  <circle cx="400" cy="450" r="120" fill="none" stroke="#666666" stroke-width="2"/>
+  <path d="M340 450 Q400 350 460 450 Q400 550 340 450" fill="none" stroke="#999999" stroke-width="2"/>
+  <text x="400" y="650" font-family="Inter, sans-serif" font-size="16" fill="#666666" text-anchor="middle">Balinese Tattoo</text>
+  <text x="400" y="950" font-family="Inter, sans-serif" font-size="12" fill="#999999" text-anchor="middle">Gallery Placeholder 1</text>
+</svg>

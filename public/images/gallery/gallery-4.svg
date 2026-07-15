@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg4)"/>
+  <rect x="300" y="350" width="200" height="200" fill="none" stroke="#666666" stroke-width="3"/>
+  <line x1="300" y1="350" x2="500" y2="550" stroke="#999999" stroke-width="1.5"/>
+  <line x1="500" y1="350" x2="300" y2="550" stroke="#999999" stroke-width="1.5"/>
+  <circle cx="400" cy="450" r="50" fill="#1a1a1a" stroke="#666666" stroke-width="2"/>
+  <text x="400" y="650" font-family="Inter, sans-serif" font-size="16" fill="#666666" text-anchor="middle">Blackwork Geometric</text>
+  <text x="400" y="950" font-family="Inter, sans-serif" font-size="12" fill="#999999" text-anchor="middle">Gallery Placeholder 4</text>
+</svg>
