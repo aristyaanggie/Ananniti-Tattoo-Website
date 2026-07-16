@@ -4,6 +4,379 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v4.9.0 — Booking Detail & Status Management
+**Date**: 2026-07-16
+**Status**: Beta (Booking Detail Complete)
+
+**What's New**:
+- Sprint 14.16: Booking Detail & Status Management
+- Booking detail page with client info, booking info, internal notes
+- Status update (Pending/Confirmed/Completed/Cancelled)
+- WhatsApp actions (Open, Copy Template, Mark Sent)
+- Timeline visualization
+- UpdateBookingRequest
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Services/BookingManagementService.php`
+- Created `app/Http/Requests/UpdateBookingRequest.php`
+- Updated `app/Http/Controllers/Admin/AdminBookingController.php`
+- Created `resources/views/admin/bookings/show.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.16.md`
+
+---
+
+### v4.8.0 — Booking Management Dashboard
+**Date**: 2026-07-16
+**Status**: Beta (Booking Management Complete)
+
+**What's New**:
+- Sprint 14.15: Booking Management Dashboard
+- BookingManagementService with stats
+- AdminBookingController (index)
+- Booking index with summary cards, filters, table
+- Status badges (Pending/Confirmed/Completed/Cancelled)
+- Desktop table + mobile cards
+- Sidebar updated with Bookings link
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Services/BookingManagementService.php`
+- Created `app/Http/Controllers/Admin/AdminBookingController.php`
+- Created `resources/views/admin/bookings/index.blade.php`
+- Updated `resources/views/layouts/admin.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.15.md`
+
+---
+
+### v4.7.0 — Portfolio Management (Admin CMS)
+**Date**: 2026-07-16
+**Status**: Beta (Portfolio CRUD Complete)
+
+**What's New**:
+- Sprint 14.14: Full Portfolio CRUD
+- PortfolioService with image upload/delete
+- StorePortfolioRequest + UpdatePortfolioRequest
+- AdminPortfolioController (index, create, store, edit, update, destroy)
+- Portfolio index with summary cards + search
+- Portfolio form with image upload preview
+- Sidebar updated with Portfolio link
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Services/PortfolioService.php`
+- Created `app/Http/Requests/StorePortfolioRequest.php`
+- Created `app/Http/Requests/UpdatePortfolioRequest.php`
+- Created `app/Http/Controllers/Admin/AdminPortfolioController.php`
+- Created `resources/views/admin/portfolio/index.blade.php`
+- Created `resources/views/admin/portfolio/form.blade.php`
+- Updated `resources/views/layouts/admin.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.14.md`
+
+---
+
+### v4.6.0 — Landing Page CMS Foundation
+**Date**: 2026-07-16
+**Status**: Beta (Landing Page CMS Complete)
+
+**What's New**:
+- Sprint 14.13: Landing Page CMS Foundation
+- SectionService with image upload
+- UpdateSectionRequest with validation
+- AdminSectionController (index, edit, update)
+- Content list page (9 sections)
+- Content edit form (title, subtitle, description, image, visibility)
+- Image upload with preview and cleanup
+- Sidebar updated with Content link
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Services/SectionService.php`
+- Created `app/Http/Requests/UpdateSectionRequest.php`
+- Created `app/Http/Controllers/Admin/AdminSectionController.php`
+- Created `resources/views/admin/content/index.blade.php`
+- Created `resources/views/admin/content/form.blade.php`
+- Updated `resources/views/layouts/admin.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.13.md`
+
+---
+
+### v4.5.0 — Product Image Upload System
+**Date**: 2026-07-16
+**Status**: Beta (Image Upload Complete)
+
+**What's New**:
+- Sprint 14.12: Thumbnail & Gallery image upload
+- Drag & drop + click to browse
+- Live preview (thumbnail + gallery)
+- Multiple gallery upload
+- Gallery image delete
+- File cleanup on replace/delete
+- Storage link configured
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Http/Requests/StoreProductRequest.php`
+- Updated `app/Http/Requests/UpdateProductRequest.php`
+- Updated `app/Services/ProductService.php` (upload, delete, gallery)
+- Updated `app/Http/Controllers/Admin/AdminProductController.php`
+- Updated `resources/views/admin/products/form.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.12.md`
+
+---
+
+### v4.4.0 — Product CRUD Backend (Delete + Status Management)
+**Date**: 2026-07-16
+**Status**: Beta (Product CRUD Complete)
+
+**What's New**:
+- Sprint 14.11: Soft Delete, Status Toggle, Bulk Actions, Audit Log
+- StatusBadge reusable component
+- DeleteModal editorial component
+- Audit logging on create/update/delete/restore/publish/unpublish
+- Trash counter in summary cards
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Repositories/Contracts/ProductRepositoryInterface.php`
+- Updated `app/Repositories/ProductRepository.php`
+- Updated `app/Services/ProductService.php` (audit logging)
+- Updated `app/Http/Controllers/Admin/AdminProductController.php`
+- Created `resources/views/components/ui/status-badge.blade.php`
+- Created `resources/views/components/ui/delete-modal.blade.php`
+- Updated `resources/views/admin/products/index.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.11.md`
+
+---
+
+### v4.3.0 — Product CRUD Backend (Store & Update)
+**Date**: 2026-07-16
+**Status**: Beta (Product CRUD Complete)
+
+**What's New**:
+- Sprint 14.10: Store & Update backend for products
+- Form Requests: StoreProductRequest, UpdateProductRequest
+- Slug auto-generation with unique check
+- Flash messages on success
+- Validation errors displayed under fields
+- Old input preserved on validation failure
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Http/Requests/StoreProductRequest.php`
+- Created `app/Http/Requests/UpdateProductRequest.php`
+- Updated `app/Services/ProductService.php` (slug generation)
+- Updated `app/Http/Controllers/Admin/AdminProductController.php`
+- Updated `resources/views/admin/products/form.blade.php`
+- Updated `resources/views/admin/products/index.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.10.md`
+
+---
+
+### v4.2.0 — Admin Product CRUD (Create & Edit Foundation)
+**Date**: 2026-07-16
+**Status**: Beta (Admin Product Form Complete)
+
+**What's New**:
+- Sprint 14.9: Create & Edit Product form pages
+- Shared form view (form.blade.php) for create and edit
+- 6 form sections: Basic Info, Pricing, Description, Images, Status, SEO
+- Upload area placeholders (dropzone style)
+- Editorial design, max-width 900px
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Http/Controllers/Admin/AdminProductController.php` (create, edit)
+- Created `resources/views/admin/products/form.blade.php`
+- Updated `resources/views/admin/products/index.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.9.md`
+
+---
+
+### v4.1.0 — Admin Product Management (Index)
+**Date**: 2026-07-16
+**Status**: Beta (Admin Product Index Complete)
+
+**What's New**:
+- Sprint 14.8: Admin Product Management Index page
+- Product list with summary cards (Total, Published, Draft, Low Stock)
+- Desktop table + mobile cards
+- Status badges, Low Stock indicator
+- Empty state with illustration
+- Sidebar active state for Products
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Http/Controllers/Admin/AdminProductController.php`
+- Created `resources/views/admin/products/index.blade.php`
+- Updated `routes/web.php`
+- Updated `resources/views/layouts/admin.blade.php`
+- Added `.ai/journal/sprint-14.8.md`
+
+---
+
+### v4.0.0 — Admin Dashboard Foundation
+**Date**: 2026-07-16
+**Status**: Beta (Admin Dashboard Complete)
+
+**What's New**:
+- Sprint 14.7: Admin Dashboard with sidebar, stats, bookings table, quick actions
+- DashboardService with dependency injection
+- Sidebar navigation with Lucide icons
+- Stats grid: 6 cards (Products, Categories, Portfolio, Artists, Bookings, Reviews)
+- Recent Bookings table (5 rows max)
+- Quick Actions (4 buttons)
+- Responsive layout (390px → 1920px)
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Services/DashboardService.php`
+- Created `app/Http/Controllers/Admin/AdminDashboardController.php`
+- Updated `resources/views/layouts/admin.blade.php` (full sidebar layout)
+- Created `resources/views/admin/dashboard.blade.php`
+- Updated `routes/web.php`
+- Added `.ai/journal/sprint-14.7.md`
+
+---
+
+### v3.9.0 — Admin Authentication Foundation
+**Date**: 2026-07-16
+**Status**: Beta (Admin Auth Complete)
+
+**What's New**:
+- Sprint 14.6: Laravel Session-based authentication
+- AdminMiddleware for role-based access control
+- Login page with editorial branding
+- Logout with session invalidation
+- CSRF protection, session regeneration
+- Route group: /admin with auth + admin middleware
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Http/Middleware/AdminMiddleware.php`
+- Created `app/Http/Controllers/Admin/AdminAuthController.php`
+- Created `resources/views/layouts/admin.blade.php`
+- Created `resources/views/auth/login.blade.php`
+- Created `resources/views/admin/home.blade.php`
+- Updated `routes/web.php` (admin routes)
+- Updated `bootstrap/app.php` (middleware alias)
+- Added `.ai/journal/sprint-14.6.md`
+
+---
+
+### v3.8.0 — Repository & Service Foundation
+**Date**: 2026-07-16
+**Status**: Beta (Backend Architecture Complete)
+
+**What's New**:
+- Sprint 14.5: Repository Pattern + Service Layer foundation
+- 6 Repository Interfaces with contracts
+- 6 Repository Implementations using Eloquent
+- 5 Services with business logic
+- AppServiceProvider bindings for dependency injection
+- PSR-12, strict types, return types, DI
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Repositories/Contracts/` (6 interfaces)
+- Created `app/Repositories/` (6 implementations)
+- Created `app/Services/` (5 services)
+- Updated `app/Providers/AppServiceProvider.php`
+- Added `.ai/journal/sprint-14.5.md`
+
+---
+
+### v3.7.0 — Database Seeder Foundation
+**Date**: 2026-07-16
+**Status**: Beta (Seeders Complete)
+
+**What's New**:
+- Sprint 14.4: 6 database seeders with 39 records
+- Categories: 6 product categories
+- Badges: 6 product badges
+- Sections: 9 landing page sections
+- Settings: 13 website configuration items
+- WhatsApp Templates: 4 message templates
+- User: 1 admin account
+- migrate:fresh --seed — 0 errors, 0 warnings
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created 6 seeder files (CategorySeeder, ProductBadgeSeeder, SectionSeeder, SettingSeeder, WhatsappTemplateSeeder, UserSeeder)
+- Updated `database/seeders/DatabaseSeeder.php`
+- Added `.ai/journal/sprint-14.4.md`
+
+---
+
+### v3.6.0 — Eloquent Models & Relationships
+**Date**: 2026-07-16
+**Status**: Beta (Models Complete)
+
+**What's New**:
+- Sprint 14.3: 16 Eloquent Models with fillable, casts, and relationships
+- User model updated with role, phone, avatar, is_active, soft deletes
+- All relationships implemented (belongsTo, hasMany, hasOne)
+- All casts properly defined (boolean, datetime, decimal, array)
+- migrate:fresh + optimize — 0 errors, 0 warnings
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Models/User.php` (added role, phone, avatar, is_active, soft deletes, relationships)
+- Created 15 new model files (Section → WhatsappTemplate)
+- Added `.ai/journal/sprint-14.3.md`
+
+---
+
+### v3.5.0 — Database Migration Foundation
+**Date**: 2026-07-16
+**Status**: Beta (Database Migrations Complete)
+
+**What's New**:
+- Sprint 14.2: 16 database tables implemented via Laravel Migrations
+- All foreign keys, indexes, soft deletes implemented
+- migrate:fresh — 0 errors, 0 warnings
+- 18 migration files total (3 Laravel default + 15 custom)
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `database/migrations/0001_01_01_000000_create_users_table.php` (added role, phone, avatar, is_active, last_login_at, softDeletes)
+- Created 15 new migration files (sections → whatsapp_templates)
+- Added `.ai/journal/sprint-14.2.md`
+
+---
+
+### v3.4.0 — Database Architecture FINAL
+**Date**: 2026-07-16
+**Status**: Beta (Database Design Complete)
+
+**What's New**:
+- Sprint 14.0: Database Architecture Foundation (15 tables designed)
+- Sprint 14.1: Database Final Refinement — Pre-Migration Lock
+- 16 tables final (added whatsapp_templates)
+- Products: +thumbnail, +stock_quantity, +minimum_stock, +published_at
+- Reviews: +artist_id (tattoo studio business model)
+- WhatsApp Templates: new table for booking/shop notifications
+- 23+ performance indexes, 5 composite indexes
+- Soft delete audit: users, products (soft), rest (hard)
+- Foreign key audit: all chains max 2 levels, no dangerous cascades
+- Final Score: 93/100
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `.ai/database-review.md` (v2.0 — FINAL)
+- Added `.ai/journal/sprint-14.0.md`
+- Added `.ai/journal/sprint-14.1.md`
+
+---
+
 ### v3.3.0 — Shop Editorial Showroom + Discoverability
 **Date**: 2026-07-16
 **Status**: Beta (Shop Complete — Editorial Showroom)
@@ -446,7 +819,7 @@ Jika issues found di production:
 
 ## Version Tracking
 
-Current version: **v3.3.0**
+Current version: **v4.9.0**
 
 ```
 Legend:
@@ -478,6 +851,22 @@ Legend:
 | v3.1.0  | 2026-07-16 | ✅ Complete | Product Detail + Editorial Grid |
 | v3.2.0  | 2026-07-16 | ✅ Complete | Shop Architecture Redesign (Collection-First) |
 | v3.3.0  | 2026-07-16 | ✅ Complete | Shop Editorial Showroom + Discoverability |
+| v3.4.0  | 2026-07-16 | ✅ Complete | Database Architecture FINAL (93/100) |
+| v3.5.0  | 2026-07-16 | ✅ Complete | Database Migration Foundation (16 tables) |
+| v3.6.0  | 2026-07-16 | ✅ Complete | Eloquent Models & Relationships (16 models) |
+| v3.7.0  | 2026-07-16 | ✅ Complete | Database Seeder Foundation (6 seeders, 39 records) |
+| v3.8.0  | 2026-07-16 | ✅ Complete | Repository & Service Foundation (6 repos, 5 services) |
+| v3.9.0  | 2026-07-16 | ✅ Complete | Admin Authentication Foundation |
+| v4.0.0  | 2026-07-16 | ✅ Complete | Admin Dashboard Foundation |
+| v4.1.0  | 2026-07-16 | ✅ Complete | Admin Product Management (Index) |
+| v4.2.0  | 2026-07-16 | ✅ Complete | Admin Product CRUD (Create & Edit Foundation) |
+| v4.3.0  | 2026-07-16 | ✅ Complete | Product CRUD Backend (Store & Update) |
+| v4.4.0  | 2026-07-16 | ✅ Complete | Product CRUD Backend (Delete + Status Management) |
+| v4.5.0  | 2026-07-16 | ✅ Complete | Product Image Upload System |
+| v4.6.0  | 2026-07-16 | ✅ Complete | Landing Page CMS Foundation |
+| v4.7.0  | 2026-07-16 | ✅ Complete | Portfolio Management (Admin CMS) |
+| v4.8.0  | 2026-07-16 | ✅ Complete | Booking Management Dashboard |
+| v4.9.0  | 2026-07-16 | ✅ Complete | Booking Detail & Status Management |
 
 ## Semantic Versioning
 
