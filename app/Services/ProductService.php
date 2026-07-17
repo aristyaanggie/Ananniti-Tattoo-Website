@@ -107,6 +107,17 @@ class ProductService
     {
         $product = $this->productRepository->find($id);
         if ($product) {
+            // Delete thumbnail file
+            if ($product->thumbnail) {
+                $this->deleteFile($product->thumbnail);
+            }
+
+            // Delete gallery images
+            foreach ($product->galleries as $gallery) {
+                $this->deleteFile($gallery->image);
+                $gallery->delete();
+            }
+
             $this->logAudit('deleted', $product);
             $this->productRepository->delete($id);
         }

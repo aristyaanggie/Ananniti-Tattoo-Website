@@ -14,6 +14,7 @@ class PortfolioItem extends Model
         'category_id',
         'artist_id',
         'title',
+        'slug',
         'description',
         'image',
         'tattoo_style',

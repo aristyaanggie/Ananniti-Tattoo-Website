@@ -16,7 +16,7 @@
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] animate-fadeInUp delay-200">Bring Your Tattoo<br class="hidden md:block"> Vision to Life</h1>
         <p class="text-base md:text-lg leading-relaxed text-white/85 mb-10 max-w-lg animate-fadeInUp delay-300">Every design is a collaboration. Every tattoo, a masterpiece crafted with precision and care.</p>
         <div class="flex flex-col sm:flex-row gap-4 mb-14 animate-fadeInUp delay-400">
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">
+          <a href="{{ route('booking.create') }}" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             Discuss Your Tattoo Idea
           </a>
@@ -95,6 +95,9 @@
             <span x-text="open ? 'Show Less' : 'Learn More'" />
             <svg :class="open ? 'rotate-180' : 'rotate-0'" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </button>
+          <a href="{{ route('booking.create') }}?service=studio" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+            Book Studio Tattoo
+          </a>
         </div>
       </div>
       {{-- Home Service --}}
@@ -119,6 +122,9 @@
             <span x-text="open ? 'Show Less' : 'Learn More'" />
             <svg :class="open ? 'rotate-180' : 'rotate-0'" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </button>
+          <a href="{{ route('booking.create') }}?service=home" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+            Book Home Service
+          </a>
         </div>
       </div>
     </div>
@@ -196,7 +202,7 @@
         <p class="text-[11px] uppercase tracking-[0.25em] text-white/50 mb-4">Portfolio</p>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">Selected Works</h2>
       </div>
-      <a href="/gallery" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/70 transition-colors duration-200">
+      <a href="{{ route('gallery.index') }}" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/70 transition-colors duration-200">
         View All
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
@@ -207,12 +213,12 @@
 
       {{-- Left Column: 1 Large Portrait + 1 Small --}}
       <div class="md:col-span-5 flex flex-col gap-6 md:gap-8">
-        <a href="/gallery" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-[3]">
+        <a href="{{ route('gallery.index') }}" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-[3]">
           <div class="overflow-hidden h-full"><img src="{{ asset('images/gallery/gallery-1.svg') }}" alt="Balinese Tattoo" class="w-full h-full min-h-[260px] md:min-h-[340px] object-cover transition-transform duration-250 group-hover:scale-[1.02]" /></div>
           <div class="absolute inset-0 bg-black/0 transition-all duration-250 group-hover:bg-black/15"></div>
           <div class="absolute inset-0 flex items-end p-6 md:p-8"><span class="text-[10px] uppercase tracking-[0.2em] text-white font-medium opacity-0 translate-y-2 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0">Balinese</span></div>
         </a>
-        <a href="/gallery" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-1">
+        <a href="{{ route('gallery.index') }}" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-1">
           <div class="overflow-hidden h-full"><img src="{{ asset('images/gallery/gallery-5.svg') }}" alt="Fine Line Tattoo" class="w-full h-full min-h-[140px] md:min-h-[180px] object-cover transition-transform duration-250 group-hover:scale-[1.02]" /></div>
           <div class="absolute inset-0 bg-black/0 transition-all duration-250 group-hover:bg-black/15"></div>
           <div class="absolute inset-0 flex items-end p-6"><span class="text-[10px] uppercase tracking-[0.2em] text-white font-medium opacity-0 translate-y-2 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0">Fine Line</span></div>
@@ -221,24 +227,24 @@
 
       {{-- Right Column: 2 Landscape + 1 Square --}}
       <div class="md:col-span-7 flex flex-col gap-6 md:gap-8">
-        <a href="/gallery" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-[3]">
+        <a href="{{ route('gallery.index') }}" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-[3]">
           <div class="overflow-hidden h-full"><img src="{{ asset('images/gallery/gallery-3.svg') }}" alt="Realism Tattoo" class="w-full h-full min-h-[210px] md:min-h-[250px] object-cover transition-transform duration-250 group-hover:scale-[1.02]" /></div>
           <div class="absolute inset-0 bg-black/0 transition-all duration-250 group-hover:bg-black/15"></div>
           <div class="absolute inset-0 flex items-end p-6 md:p-8"><span class="text-[10px] uppercase tracking-[0.2em] text-white font-medium opacity-0 translate-y-2 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0">Realism</span></div>
         </a>
         <div class="grid grid-cols-2 gap-6 md:gap-8 flex-[2]">
-          <a href="/gallery" class="group relative overflow-hidden rounded-3xl cursor-pointer">
+          <a href="{{ route('gallery.index') }}" class="group relative overflow-hidden rounded-3xl cursor-pointer">
             <div class="overflow-hidden h-full"><img src="{{ asset('images/gallery/gallery-2.svg') }}" alt="Oriental Tattoo" class="w-full h-full min-h-[140px] md:min-h-[180px] object-cover transition-transform duration-250 group-hover:scale-[1.02]" /></div>
             <div class="absolute inset-0 bg-black/0 transition-all duration-250 group-hover:bg-black/15"></div>
             <div class="absolute inset-0 flex items-end p-5"><span class="text-[10px] uppercase tracking-[0.2em] text-white font-medium opacity-0 translate-y-2 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0">Oriental</span></div>
           </a>
-          <a href="/gallery" class="group relative overflow-hidden rounded-3xl cursor-pointer">
+          <a href="{{ route('gallery.index') }}" class="group relative overflow-hidden rounded-3xl cursor-pointer">
             <div class="overflow-hidden h-full"><img src="{{ asset('images/gallery/gallery-4.svg') }}" alt="Blackwork Tattoo" class="w-full h-full min-h-[140px] md:min-h-[180px] object-cover transition-transform duration-250 group-hover:scale-[1.02]" /></div>
             <div class="absolute inset-0 bg-black/0 transition-all duration-250 group-hover:bg-black/15"></div>
             <div class="absolute inset-0 flex items-end p-5"><span class="text-[10px] uppercase tracking-[0.2em] text-white font-medium opacity-0 translate-y-2 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0">Blackwork</span></div>
           </a>
         </div>
-        <a href="/gallery" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-1">
+        <a href="{{ route('gallery.index') }}" class="group relative overflow-hidden rounded-3xl cursor-pointer flex-1">
           <div class="overflow-hidden h-full"><img src="{{ asset('images/gallery/gallery-6.svg') }}" alt="Custom Design" class="w-full h-full min-h-[120px] md:min-h-[150px] object-cover transition-transform duration-250 group-hover:scale-[1.02]" /></div>
           <div class="absolute inset-0 bg-black/0 transition-all duration-250 group-hover:bg-black/15"></div>
           <div class="absolute inset-0 flex items-end p-6"><span class="text-[10px] uppercase tracking-[0.2em] text-white font-medium opacity-0 translate-y-2 transition-all duration-250 group-hover:opacity-100 group-hover:translate-y-0">Custom Design</span></div>
@@ -273,7 +279,7 @@
           <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">With over a decade of experience, our featured artist brings a unique blend of technical precision and creative vision to every piece.</p>
           <p class="text-base md:text-lg text-white/70 leading-relaxed">Each design is carefully crafted to tell a personal story while maintaining the highest standards of quality and safety.</p>
         </div>
-        <a href="/gallery" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">
+        <a href="{{ route('gallery.index') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">
           View Portfolio
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
@@ -407,7 +413,7 @@
           <p class="text-base text-black/60 leading-relaxed max-w-md mx-auto">Whether it's your first tattoo or your next masterpiece, we're here to help you shape every detail.</p>
         </div>
         <div class="text-center mb-10">
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-8 py-4 bg-black text-white text-sm font-semibold rounded transition-all duration-200 hover:bg-[#1a1a1a] hover:scale-[1.02] active:scale-[0.98]">
+          <a href="{{ route('booking.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             Discuss Your Tattoo Idea
           </a>

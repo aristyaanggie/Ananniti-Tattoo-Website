@@ -368,24 +368,27 @@ CONSULTATION → FOOTER           [BLACK]
 
 ## Tahap Selanjutnya
 
-### Shop Development ✅
-- Sprint 12.0–12.8: Shop Foundation, Components, Product Detail, UX Polish
-- Sprint 13.0–13.3: Architecture Redesign, Editorial Showroom, Discoverability
+### Backend Features ✅
+- Sprint 14.0–14.16: Database, Models, Auth, Admin Dashboard, Product CRUD, Portfolio CRUD, Booking Management
 
-### Backend Features (Future)
-- Database & Eloquent Models
-- Authentication
-- Booking system
-- Admin dashboard
-- Payment integration
+### Public Shop & Booking ✅
+- Sprint 16: Booking Flow & WhatsApp Integration
+- Sprint 16.1: Booking CTA Optimization & WhatsApp Fix
+- Sprint 16.2: Booking CTA Visual Polish
+- Sprint 17: Public Shop & Product Detail
+- Sprint 17.1: Shop Category Experience & Product WhatsApp
 
-### Optimization & Polish
+### Gallery & Portfolio ✅
+- Sprint 18: Gallery Experience & Portfolio Detail
+- Sprint 18.1: Global Navigation & CTA Consistency
+
+### Optimization & Polish (Future)
 - Image optimization (WebP, responsive sizes)
 - Performance tuning
 - SEO optimization
 - Caching strategy
 
-### Deployment
+### Deployment (Future)
 - Environment configuration
 - Production setup
 - SSL certificate
@@ -420,9 +423,31 @@ CONSULTATION → FOOTER           [BLACK]
 | v3.1.0 | 2026-07-16 | ✅ | Product Detail + Editorial Grid |
 | v3.2.0 | 2026-07-16 | ✅ | Shop Architecture Redesign (Collection-First) |
 | v3.3.0 | 2026-07-16 | ✅ | Shop Editorial Showroom + Discoverability |
+| v4.0.0 | 2026-07-16 | ✅ | Admin Dashboard Foundation |
+| v4.1.0 | 2026-07-16 | ✅ | Admin Product Management (Index) |
+| v4.2.0 | 2026-07-16 | ✅ | Admin Product CRUD (Create & Edit Foundation) |
+| v4.3.0 | 2026-07-16 | ✅ | Product CRUD Backend (Store & Update) |
+| v4.4.0 | 2026-07-16 | ✅ | Product CRUD Backend (Delete + Status Management) |
+| v4.5.0 | 2026-07-16 | ✅ | Product Image Upload System |
+| v4.6.0 | 2026-07-16 | ✅ | Landing Page CMS Foundation |
+| v4.7.0 | 2026-07-16 | ✅ | Portfolio Management (Admin CMS) |
+| v4.8.0 | 2026-07-16 | ✅ | Booking Management Dashboard |
+| v4.9.0 | 2026-07-16 | ✅ | Booking Detail & Status Management |
+| v5.0.0 | 2026-07-17 | ✅ | Review Management CMS (Admin) |
+| v5.1.0 | 2026-07-17 | ✅ | Contact Inbox Management (Admin) |
+| v5.2.0 | 2026-07-17 | ✅ | Admin Auth Fix (RedirectIfAuthenticated) |
+| v5.3.0 | 2026-07-17 | ✅ | Database Schema & Admin CRUD Stabilization |
+| v5.4.0 | 2026-07-17 | ✅ | Admin UX Polish (Sidebar, Delete Modal, Image Preview) |
+| v6.0.0 | 2026-07-17 | ✅ | Booking Flow & WhatsApp Integration |
+| v6.1.0 | 2026-07-17 | ✅ | Booking CTA Optimization & WhatsApp Fix |
+| v6.2.0 | 2026-07-17 | ✅ | Booking CTA Visual Polish |
+| v7.0.0 | 2026-07-17 | ✅ | Public Shop & Product Detail (Dynamic) |
+| v7.1.0 | 2026-07-17 | ✅ | Shop Category Experience & Product WhatsApp |
+| v8.0.0 | 2026-07-17 | ✅ | Gallery Experience & Portfolio Detail |
+| v8.1.0 | 2026-07-17 | ✅ | Global Navigation & CTA Consistency |
 
 ---
 
-**Last Updated**: 2026-07-16
-**Status**: SHOP EDITORIAL SHOWROOM COMPLETE (v3.3.0)
-**Next**: Sprint 14 — Deployment / Database / Backend
+**Last Updated**: 2026-07-17
+**Status**: PUBLIC FACING COMPLETE (v8.1.0)
+**Next**: Payment Integration → Deployment

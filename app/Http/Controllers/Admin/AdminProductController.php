@@ -103,9 +103,13 @@ class AdminProductController extends Controller
             ->with('success', 'Product status updated.');
     }
 
-    public function destroyGalleryImage(int $id): RedirectResponse
+    public function destroyGalleryImage(int $id)
     {
-        $this->productService->deleteGalleryImage($id);
+        $deleted = $this->productService->deleteGalleryImage($id);
+
+        if (request()->expectsJson()) {
+            return response()->json(['success' => $deleted]);
+        }
 
         return redirect()->back()
             ->with('success', 'Gallery image deleted.');

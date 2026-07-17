@@ -4,6 +4,142 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v8.1.0 — Global Navigation & CTA Consistency
+**Date**: 2026-07-17
+**Status**: Beta (Navigation Rollback)
+
+**What's New**:
+- Sprint 18.1: Global Navigation & CTA Consistency
+- Navbar updated with named routes
+- CTA consistency across all pages
+- Rollback to pre-Sprint 18.1 state
+
+**Changes**:
+- Updated `resources/views/components/layout/navbar.blade.php`
+- Added `.ai/journal/sprint-18.md`
+
+---
+
+### v8.0.0 — Gallery Experience & Portfolio Detail
+**Date**: 2026-07-17
+**Status**: Beta (Gallery Complete)
+
+**What's New**:
+- Sprint 18: Gallery Experience & Portfolio Detail
+- Public Gallery page with masonry grid
+- Filter by tattoo style (dynamic)
+- Search by title/style/artist (Alpine.js)
+- Portfolio detail page with artist card
+- Artist profile page with portfolio
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Http/Controllers/GalleryController.php`
+- Created `resources/views/pages/gallery.blade.php`
+- Created `resources/views/pages/portfolio-detail.blade.php`
+- Created `resources/views/pages/artist-profile.blade.php`
+- Updated `routes/web.php` (+3 routes)
+- Updated `resources/views/pages/home.blade.php` (gallery links)
+- Added `.ai/journal/sprint-18.md`
+
+---
+
+### v7.1.0 — Shop Category Experience & Product WhatsApp
+**Date**: 2026-07-17
+**Status**: Beta (Shop Complete)
+
+**What's New**:
+- Sprint 17.1: Shop Category Experience & Product WhatsApp
+- All categories display (including empty)
+- Empty category: "Products Coming Soon" + CTA
+- Quantity selector on product detail
+- Customer info fields
+- Product WhatsApp format (different from booking)
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Http/Controllers/ShopController.php`
+- Updated `resources/views/pages/shop.blade.php`
+- Updated `resources/views/pages/shop-detail.blade.php`
+- Added `.ai/journal/sprint-17.1.md`
+
+---
+
+### v7.0.0 — Public Shop & Product Detail
+**Date**: 2026-07-17
+**Status**: Beta (Shop Dynamic)
+
+**What's New**:
+- Sprint 17: Public Shop & Product Detail
+- Shop page dynamic from database
+- Product detail page editorial layout
+- Gallery with Alpine.js thumbnails
+- Breadcrumb, related products, SEO
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Http/Controllers/ShopController.php`
+- Updated `resources/views/pages/shop.blade.php`
+- Updated `resources/views/pages/shop-detail.blade.php`
+- Added `.ai/journal/sprint-17.md`
+
+---
+
+### v6.2.0 — Booking CTA Visual Polish
+**Date**: 2026-07-17
+**Status**: Beta (Booking Polish)
+
+**What's New**:
+- Sprint 16.2: Booking CTA Visual Polish
+- All CTAs standardized: px-5 py-2.5 text-sm font-medium rounded-lg
+- Focus rings added for accessibility
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php`
+
+---
+
+### v6.1.0 — Booking CTA Optimization & WhatsApp Fix
+**Date**: 2026-07-17
+**Status**: Beta (WhatsApp Fixed)
+
+**What's New**:
+- Sprint 16.1: Booking CTA Optimization & WhatsApp Fix
+- WhatsApp number format fixed (08 → 628)
+- Pre-selected service via query parameter
+- CTAs added to Services section
+- Footer CTA updated
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Updated `app/Http/Controllers/BookingController.php`
+- Updated `resources/views/pages/booking.blade.php`
+- Updated `resources/views/pages/home.blade.php`
+- Updated `resources/views/components/layout/footer.blade.php`
+
+---
+
+### v6.0.0 — Booking Flow & WhatsApp Integration
+**Date**: 2026-07-17
+**Status**: Beta (Booking Complete)
+
+**What's New**:
+- Sprint 16: Booking Flow & WhatsApp Integration
+- Public booking form
+- WhatsApp message generation
+- Studio Tattoo + Home Service
+- Location fields for Home Service
+- Build: 0 error, 0 warning
+
+**Changes**:
+- Created `app/Http/Controllers/BookingController.php`
+- Created `resources/views/pages/booking.blade.php`
+- Updated `routes/web.php` (+2 routes)
+- Updated `resources/views/pages/home.blade.php` (CTA links)
+
+---
+
 ### v4.9.0 — Booking Detail & Status Management
 **Date**: 2026-07-16
 **Status**: Beta (Booking Detail Complete)

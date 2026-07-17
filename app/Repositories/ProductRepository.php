@@ -30,7 +30,7 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function findBySlug(string $slug)
     {
-        return $this->model->where('slug', $slug)->first();
+        return $this->model->withTrashed()->where('slug', $slug)->first();
     }
 
     public function create(array $data)

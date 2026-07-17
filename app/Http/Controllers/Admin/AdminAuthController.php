@@ -35,7 +35,7 @@ class AdminAuthController extends Controller
                 ]);
             }
 
-            return redirect()->intended(route('admin.home'));
+            return redirect()->intended(route('admin.dashboard'));
         }
 
         return back()->withErrors([

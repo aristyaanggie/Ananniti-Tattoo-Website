@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="max-w-[900px] mx-auto" x-data="{
-    thumbnailPreview: '{{ $product && $product->thumbnail ? asset($product->thumbnail) : '' }}',
-    galleryPreviews: {{ Js::from($product && $product->galleries ? $product->galleries->map(fn($g) => ['id' => $g->id, 'url' => asset($g->image)])->toArray() : []) }},
+    thumbnailPreview: '{{ $product && $product->thumbnail ? asset('storage/' . $product->thumbnail) : '' }}',
+    galleryPreviews: {{ Js::from($product && $product->galleries ? $product->galleries->map(fn($g) => ['id' => $g->id, 'url' => asset('storage/' . $g->image)])->toArray() : []) }},
     handleThumbnail(e) {
         const file = e.target.files[0];
         if (file) {
@@ -21,6 +21,23 @@
     },
     removeGalleryImage(index) {
         this.galleryPreviews.splice(index, 1);
+    },
+    async deleteGalleryImage(id, index) {
+        const token = document.querySelector('meta[name="csrf-token"]')?.content || '{{ csrf_token() }}';
+        try {
+            const response = await fetch('{{ url('/admin/products/gallery') }}/' + id, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': token,
+                    'Accept': 'application/json',
+                },
+            });
+            if (response.ok) {
+                this.galleryPreviews.splice(index, 1);
+            }
+        } catch (e) {
+            console.error('Failed to delete gallery image:', e);
+        }
     }
 }">
 
@@ -165,7 +182,7 @@
                     <div>
                         <label class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Thumbnail</label>
                         <div class="relative">
-                            <input type="file" name="thumbnail" accept="image/jpeg,image/png,image/webp" class="hidden" id="thumbnail-input" onchange="handleThumbnail(event)" />
+                            <input type="file" name="thumbnail" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="thumbnail-input" x-on:change="handleThumbnail($event)" />
                             <label for="thumbnail-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer" :class="thumbnailPreview ? 'border-[#1a1a1a]/20' : ''">
                                 <template x-if="thumbnailPreview">
                                     <div class="relative">
@@ -192,7 +209,7 @@
                     <div>
                         <label class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Gallery</label>
                         <div class="relative">
-                            <input type="file" name="gallery[]" accept="image/jpeg,image/png,image/webp" multiple class="hidden" id="gallery-input" onchange="handleGallery(event)" />
+                            <input type="file" name="gallery[]" accept="image/jpeg,image/png,image/webp" multiple class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="gallery-input" x-on:change="handleGallery($event)" />
                             <label for="gallery-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer">
                                 <svg class="w-8 h-8 mx-auto text-[#cccccc] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z"></path></svg>
                                 <p class="text-[13px] text-[#666666] font-medium">Drop images here</p>
@@ -211,7 +228,7 @@
                             <template x-for="(img, index) in galleryPreviews" :key="img.id">
                                 <div class="relative group">
                                     <img :src="img.url" class="w-full h-20 object-cover rounded-lg" alt="Gallery preview" />
-                                    <button type="button" @click="removeGalleryImage(index)" class="absolute top-1 right-1 w-5 h-5 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-150">&times;</button>
+                                    <button type="button" @click="typeof img.id === 'number' ? deleteGalleryImage(img.id, index) : removeGalleryImage(index)" class="absolute top-1 right-1 w-5 h-5 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-150">&times;</button>
                                 </div>
                             </template>
                         </div>

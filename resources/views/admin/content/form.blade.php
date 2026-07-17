@@ -90,7 +90,7 @@
             <div class="bg-white border border-[#e5e5e5] rounded-2xl p-6 md:p-8">
                 <h3 class="text-[15px] font-bold text-[#1a1a1a] mb-6" style="font-family: var(--font-heading);">Image</h3>
                 <div>
-                    <input type="file" name="image" accept="image/jpeg,image/png,image/webp" class="hidden" id="image-input" onchange="handleImage(event)" />
+                    <input type="file" name="image" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="image-input" x-on:change="handleImage($event)" />
                     <label for="image-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer" :class="imagePreview ? 'border-[#1a1a1a]/20' : ''">
                         <template x-if="imagePreview">
                             <div class="relative">

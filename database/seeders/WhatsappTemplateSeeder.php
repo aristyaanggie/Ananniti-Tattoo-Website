@@ -37,7 +37,10 @@ class WhatsappTemplateSeeder extends Seeder
         ];
 
         foreach ($templates as $template) {
-            WhatsappTemplate::create($template);
+            WhatsappTemplate::firstOrCreate(
+                ['name' => $template['name']],
+                $template
+            );
         }
     }
 }

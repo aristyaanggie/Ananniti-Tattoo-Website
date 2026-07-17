@@ -16,7 +16,7 @@
           <a href="{{ route('shop') }}" class="block text-[13px] text-white/70 hover:text-white transition-colors duration-200">Shop</a>
           <a href="{{ route('home') }}#gallery" class="block text-[13px] text-white/70 hover:text-white transition-colors duration-200">Gallery</a>
           <a href="{{ route('home') }}#artists" class="block text-[13px] text-white/70 hover:text-white transition-colors duration-200">Artist</a>
-          <a href="{{ route('home') }}#cta" class="block text-[13px] text-white/70 hover:text-white transition-colors duration-200">Consultation</a>
+          <a href="{{ route('booking.create') }}" class="block text-[13px] text-white/70 hover:text-white transition-colors duration-200">Book Consultation</a>
         </nav>
       </div>
       <div>

@@ -2,10 +2,9 @@
     'id' => 'delete-modal',
     'title' => 'Delete Product?',
     'message' => 'This product will be moved to trash. You can restore it later.',
-    'action' => '#',
 ])
 
-<div id="{{ $id }}" class="fixed inset-0 z-50 hidden items-center justify-center p-6" x-data="{ open: false }" x-on:open-delete-modal.window="open = true" x-on:close-delete-modal.window="open = false" x-on:keydown.escape.window="open = false">
+<div id="{{ $id }}" class="fixed inset-0 z-50 items-center justify-center p-6" x-data="{ open: false, action: '#' }" x-show="open" x-cloak x-on:open-delete-modal.window="open = true; action = $event.detail.action || '#'" x-on:close-delete-modal.window="open = false" x-on:keydown.escape.window="open = false">
     {{-- Backdrop --}}
     <div class="absolute inset-0 bg-black/50 transition-opacity duration-200" x-show="open" x-transition:enter="ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="open = false"></div>
 
@@ -19,7 +18,7 @@
             <p class="text-[14px] text-[#666666] mb-6">{{ $message }}</p>
             <div class="flex items-center justify-center gap-3">
                 <button @click="open = false" class="px-5 py-2.5 border border-[#e5e5e5] text-[14px] font-medium text-[#666666] rounded-lg hover:bg-[#fafafa] transition-colors duration-200">Cancel</button>
-                <form method="POST" action="{{ $action }}" class="inline">
+                <form :action="action" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="px-5 py-2.5 bg-[#ef4444] text-white text-[14px] font-semibold rounded-lg hover:bg-[#dc2626] transition-colors duration-200">Delete Product</button>
