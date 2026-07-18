@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Concerns\FormatsWhatsAppNumber;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    use FormatsWhatsAppNumber;
     public function create(Request $request): \Illuminate\View\View
     {
         $rawNumber = Setting::where('key', 'whatsapp')->value('value') ?? '6281234567890';
@@ -53,31 +55,12 @@ class BookingController extends Controller
 
         $message = $this->buildWhatsAppMessage($validated);
 
-        $whatsappNumber = $validated['whatsapp_number'] ?? '6281234567890';
+        $whatsappNumber = $request->input('whatsapp_number', '6281234567890');
         $whatsappNumber = $this->formatWhatsAppNumber($whatsappNumber);
 
         $url = 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode($message);
 
         return redirect()->away($url);
-    }
-
-    protected function formatWhatsAppNumber(string $number): string
-    {
-        $number = preg_replace('/[^0-9]/', '', $number);
-
-        if (str_starts_with($number, '08')) {
-            $number = '62' . substr($number, 1);
-        }
-
-        if (str_starts_with($number, '628')) {
-            return $number;
-        }
-
-        if (str_starts_with($number, '62')) {
-            return $number;
-        }
-
-        return '62' . $number;
     }
 
     protected function buildWhatsAppMessage(array $data): string

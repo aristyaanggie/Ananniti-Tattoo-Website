@@ -109,7 +109,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-[14px] text-[#666666]">{{ $product->category->name ?? '—' }}</td>
-                                <td class="px-6 py-4 text-[14px] font-medium text-[#1a1a1a]">${{ number_format($product->price, 2) }}</td>
+                                <td class="px-6 py-4 text-[14px] font-medium text-[#1a1a1a]">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format($product->price, 0, ',', '.') }}</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-2">
                                         <span class="text-[14px] text-[#1a1a1a]">{{ $product->stock_quantity }}</span>
@@ -177,7 +177,7 @@
                             <p class="text-[13px] text-[#999999] mt-0.5">{{ $product->category->name ?? '—' }}</p>
                         </div>
                         <div class="text-right flex-shrink-0">
-                            <p class="text-[14px] font-medium text-[#1a1a1a]">${{ number_format($product->price, 2) }}</p>
+                            <p class="text-[14px] font-medium text-[#1a1a1a]">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format($product->price, 0, ',', '.') }}</p>
                             @if($product->is_visible)
                                 <x-ui.status-badge status="published" />
                             @else

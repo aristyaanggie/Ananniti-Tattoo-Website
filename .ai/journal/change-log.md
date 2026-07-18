@@ -4,6 +4,30 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v8.2.0 — Final QA & Production Readiness
+**Date**: 2026-07-18
+**Status**: Beta (Stabilization Complete)
+
+**What's New**:
+- Sprint 19: Full 10-step audit (42 blade files, 16 models, 11 services)
+- Sprint 19.1: 8 bugs fixed across public & admin pages
+- Created `FormatsWhatsAppNumber` shared trait
+- Currency symbol now uses config (Rp)
+- Delete modal now supports dynamic action label
+
+**Changes**:
+- Fixed 5 homepage shop links (BUG-001)
+- Fixed booking WhatsApp number source (BUG-002)
+- Fixed delete modal hardcoded label (BUG-007)
+- Fixed currency symbol from $ to Rp (BUG-009)
+- Fixed PortfolioService wrong DI (BUG-010)
+- Extracted formatWhatsAppNumber to trait (BUG-012)
+- Fixed bookings view link (BUG-013)
+- Created `app/Concerns/FormatsWhatsAppNumber.php`
+- Added `.ai/journal/sprint-19.md`
+
+---
+
 ### v8.1.0 — Global Navigation & CTA Consistency
 **Date**: 2026-07-17
 **Status**: Beta (Navigation Rollback)

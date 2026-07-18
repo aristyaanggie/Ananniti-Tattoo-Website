@@ -1,7 +1,8 @@
 @props([
     'id' => 'delete-modal',
-    'title' => 'Delete Product?',
-    'message' => 'This product will be moved to trash. You can restore it later.',
+    'title' => 'Delete Item?',
+    'message' => 'This item will be permanently deleted. This action cannot be undone.',
+    'actionLabel' => 'Delete',
 ])
 
 <div id="{{ $id }}" class="fixed inset-0 z-50 items-center justify-center p-6" x-data="{ open: false, action: '#' }" x-show="open" x-cloak x-on:open-delete-modal.window="open = true; action = $event.detail.action || '#'" x-on:close-delete-modal.window="open = false" x-on:keydown.escape.window="open = false">
@@ -21,7 +22,7 @@
                 <form :action="action" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="px-5 py-2.5 bg-[#ef4444] text-white text-[14px] font-semibold rounded-lg hover:bg-[#dc2626] transition-colors duration-200">Delete Product</button>
+                    <button type="submit" class="px-5 py-2.5 bg-[#ef4444] text-white text-[14px] font-semibold rounded-lg hover:bg-[#dc2626] transition-colors duration-200">{{ $actionLabel }}</button>
                 </form>
             </div>
         </div>

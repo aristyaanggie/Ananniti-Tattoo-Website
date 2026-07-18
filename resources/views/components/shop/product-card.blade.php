@@ -39,7 +39,7 @@
     <div>
         <p class="text-[12px] uppercase tracking-[0.15em] text-text-muted mb-1.5">{{ $category }}</p>
         <h3 class="text-[15px] font-bold text-text-primary mb-1.5 leading-snug line-clamp-2 transition-all duration-200 group-hover:translate-x-0.5" style="font-family: var(--font-heading);">{{ $title }}</h3>
-        <p class="text-[14px] font-semibold text-text-primary mb-2">${{ number_format((float) $price, 2) }}</p>
+        <p class="text-[14px] font-semibold text-text-primary mb-2">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format((float) $price, 0, ',', '.') }}</p>
         <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-text-primary transition-all duration-200 group-hover:gap-2">
             View Product
             <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>

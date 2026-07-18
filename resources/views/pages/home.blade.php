@@ -141,7 +141,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
       {{-- Large Card --}}
-      <a href="/shop?category=machine" class="group relative md:row-span-2 overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop.category', 'machine') }}" class="group relative md:row-span-2 overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[3/4] md:h-full overflow-hidden">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Machine" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
@@ -153,23 +153,23 @@
         </div>
       </a>
       <div class="flex flex-col gap-4 md:gap-5">
-        <a href="/shop?category=ink" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+        <a href="{{ route('shop.category', 'ink') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
           <div class="aspect-[16/9] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Ink" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Tattoo Ink</h3><p class="text-[13px] text-white/70">Rich pigmentation, lasting results</p></div>
         </a>
-        <a href="/shop?category=needles" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+        <a href="{{ route('shop.category', 'needles') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
           <div class="aspect-[16/9] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Needle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Tattoo Needle</h3><p class="text-[13px] text-white/70">Sterile, professional grade</p></div>
         </a>
       </div>
-      <a href="/shop?category=kitset" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop.category', 'kitset') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[4/3] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Kit Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Kit Set</h3><p class="text-[13px] text-white/70">Complete starter kits</p></div>
       </a>
-      <a href="/shop?category=furniture" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop.category', 'furniture') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[4/3] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Furniture" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Furniture</h3><p class="text-[13px] text-white/70">Studio essentials</p></div>

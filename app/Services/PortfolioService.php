@@ -6,16 +6,13 @@ namespace App\Services;
 
 use App\Models\AuditLog;
 use App\Models\PortfolioItem;
-use App\Repositories\Contracts\SectionRepositoryInterface;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PortfolioService
 {
-    public function __construct(
-        protected SectionRepositoryInterface $sectionRepository,
-    ) {}
+    public function __construct() {}
 
     public function getAllPortfolios()
     {
