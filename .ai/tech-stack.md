@@ -24,7 +24,7 @@ Dokumentasi lengkap technology stack yang digunakan dalam project Ananniti Tatto
 ## Frontend
 
 ### Build Tool
-- **Vite**: 7.3.6 - Frontend build tool dan dev server
+- **Vite**: 7.0.7 - Frontend build tool dan dev server
 - **Laravel Vite Plugin**: 2.0.0 - Integration dengan Laravel
 
 ### Styling

@@ -21,6 +21,8 @@ class StorePortfolioRequest extends FormRequest
             'artist_id' => ['required', 'exists:artist_profiles,id'],
             'category_id' => ['required', 'exists:categories,id'],
             'tattoo_style' => ['nullable', 'string', 'max:100'],
+            'placement' => ['nullable', 'string', 'max:100'],
+            'session_hours' => ['nullable', 'integer', 'min:1'],
             'description' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'is_featured' => ['boolean'],

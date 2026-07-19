@@ -1,3 +1,14 @@
+@php
+  $navWhatsappNumber = \App\Models\Setting::where('key', 'whatsapp')->value('value') ?? '6281234567890';
+  $navWhatsappNumber = preg_replace('/[^0-9]/', '', $navWhatsappNumber);
+  if (str_starts_with($navWhatsappNumber, '08')) {
+      $navWhatsappNumber = '62' . substr($navWhatsappNumber, 1);
+  }
+  if (!str_starts_with($navWhatsappNumber, '62')) {
+      $navWhatsappNumber = '62' . $navWhatsappNumber;
+  }
+@endphp
+
 <nav 
   x-data="navbarData()" 
   @scroll.window="handleScroll()"
@@ -20,17 +31,17 @@
     <div class="hidden md:flex items-center justify-center flex-1 mx-8">
       <div class="flex items-center gap-8">
         <a href="{{ route('home') }}" class="nav-link text-[13px]">Home</a>
-        <a href="#services" class="nav-link text-[13px]">Services</a>
-        <a href="#shop" class="nav-link text-[13px]">Shop</a>
-        <a href="#gallery" class="nav-link text-[13px]">Gallery</a>
-        <a href="#artists" class="nav-link text-[13px]">Artist</a>
+        <a href="{{ route('home') }}#services" class="nav-link text-[13px]">Services</a>
+        <a href="{{ route('shop') }}" class="nav-link text-[13px]">Shop</a>
+        <a href="{{ route('gallery.index') }}" class="nav-link text-[13px]">Gallery</a>
+        <a href="{{ route('home') }}#artists" class="nav-link text-[13px]">Artist</a>
       </div>
     </div>
 
     {{-- Desktop CTA (Right) --}}
     <div class="hidden md:flex items-center flex-shrink-0">
       <a 
-        href="https://wa.me/6281234567890" 
+        href="https://wa.me/{{ $navWhatsappNumber }}" 
         target="_blank" 
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-semibold rounded transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
@@ -79,13 +90,13 @@
   >
     <div class="px-6 py-6 space-y-1">
       <a href="{{ route('home') }}" class="block nav-link-mobile" @click="menuOpen = false">Home</a>
-      <a href="#services" class="block nav-link-mobile" @click="menuOpen = false">Services</a>
-      <a href="#shop" class="block nav-link-mobile" @click="menuOpen = false">Shop</a>
-      <a href="#gallery" class="block nav-link-mobile" @click="menuOpen = false">Gallery</a>
-      <a href="#artists" class="block nav-link-mobile" @click="menuOpen = false">Artist</a>
+      <a href="{{ route('home') }}#services" class="block nav-link-mobile" @click="menuOpen = false">Services</a>
+      <a href="{{ route('shop') }}" class="block nav-link-mobile" @click="menuOpen = false">Shop</a>
+      <a href="{{ route('gallery.index') }}" class="block nav-link-mobile" @click="menuOpen = false">Gallery</a>
+      <a href="{{ route('home') }}#artists" class="block nav-link-mobile" @click="menuOpen = false">Artist</a>
       <div class="pt-4 mt-4" style="border-top: 1px solid rgba(245, 245, 240, 0.08);">
         <a 
-          href="https://wa.me/6281234567890" 
+          href="https://wa.me/{{ $navWhatsappNumber }}" 
           target="_blank" 
           rel="noopener noreferrer"
           class="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold rounded transition-all duration-200"

@@ -50,8 +50,6 @@ class AdminReviewController extends Controller
     public function store(StoreReviewRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $data['name'] = $data['customer_name'];
-        unset($data['customer_name']);
 
         $this->reviewService->createReview($data);
 
@@ -71,8 +69,6 @@ class AdminReviewController extends Controller
     public function update(UpdateReviewRequest $request, Review $review): RedirectResponse
     {
         $data = $request->validated();
-        $data['name'] = $data['customer_name'];
-        unset($data['customer_name']);
 
         $this->reviewService->updateReview($review->id, $data);
 

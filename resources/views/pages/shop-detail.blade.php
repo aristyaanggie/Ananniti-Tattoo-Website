@@ -80,7 +80,7 @@
         @endif
 
         <div class="mb-8">
-          <p class="text-2xl md:text-3xl font-bold text-text-primary mb-2">${{ number_format($product->price, 2) }}</p>
+          <p class="text-2xl md:text-3xl font-bold text-text-primary mb-2">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format($product->price, 0, ',', '.') }}</p>
           @if($product->stock_quantity > 0)
             <p class="text-[13px] text-success font-medium">In Stock ({{ $product->stock_quantity }} available)</p>
           @else
@@ -106,7 +106,9 @@
 
         {{-- WhatsApp CTA --}}
         <div class="flex flex-col sm:flex-row gap-3 mb-8">
-          <a :href="'https://wa.me/{{ $whatsappNumber }}?text=' + encodeURIComponent('━━━━━━━━━━━━━━━━━━━━━━\n\nPRODUCT INQUIRY\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nPRODUCT\n{{ $product->name }}\n{{ $product->category->name ?? '' }}\n${{ number_format($product->price, 2) }}\nQuantity : ' + quantity + '\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nCUSTOMER\nName: ' + (customerName || '—') + '\nCountry: ' + (customerCountry || '—') + '\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nMESSAGE\nI would like to ask about availability and shipping for this product.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nSent from\nAnanniti Tattoo Bali Website')"
+          <a :href="customerName.trim() !== '' && customerCountry.trim() !== '' ? 'https://wa.me/{{ $whatsappNumber }}?text=' + encodeURIComponent('━━━━━━━━━━━━━━━━━━━━━━\n\nPRODUCT INQUIRY\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nPRODUCT\n{{ $product->name }}\n{{ $product->category->name ?? '' }}\n${{ number_format($product->price, 2) }}\nQuantity : ' + quantity + '\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nCUSTOMER\nName: ' + customerName + '\nCountry: ' + customerCountry + '\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nMESSAGE\nI would like to ask about availability and shipping for this product.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nSent from\nAnanniti Tattoo Bali Website') : '#'"
+               @click.prevent="if (customerName.trim() === '' || customerCountry.trim() === '') { return; } window.location.href = 'https://wa.me/{{ $whatsappNumber }}?text=' + encodeURIComponent('━━━━━━━━━━━━━━━━━━━━━━\n\nPRODUCT INQUIRY\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nPRODUCT\n{{ $product->name }}\n{{ $product->category->name ?? '' }}\n${{ number_format($product->price, 2) }}\nQuantity : ' + quantity + '\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nCUSTOMER\nName: ' + customerName + '\nCountry: ' + customerCountry + '\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nMESSAGE\nI would like to ask about availability and shipping for this product.\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nSent from\nAnanniti Tattoo Bali Website');"
+               :class="(customerName.trim() === '' || customerCountry.trim() === '') ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''"
                target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>

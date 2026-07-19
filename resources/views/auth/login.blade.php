@@ -60,7 +60,7 @@
 
             <button
                 type="submit"
-                class="w-full px-4 py-3 bg-[#1a1a1a] text-white text-[14px] font-semibold rounded-lg hover:bg-[#333333] transition-colors duration-200"
+                class="w-full px-4 py-3 bg-[#1a1a1a] text-white text-[14px] font-semibold rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2"
             >
                 Login
             </button>

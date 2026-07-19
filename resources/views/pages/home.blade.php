@@ -20,7 +20,7 @@
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             Discuss Your Tattoo Idea
           </a>
-          <a href="#gallery" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/15 text-white text-sm font-semibold rounded border border-white/30 transition-all duration-200 hover:bg-white/25 hover:border-white/50">
+          <a href="#gallery" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-white text-white text-sm font-medium rounded-lg transition-all duration-200 hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
             View Our Works
           </a>
         </div>
@@ -30,7 +30,7 @@
             4.9 Google Reviews
           </span>
           <span class="w-px h-3 bg-white/20"></span>
-          <span>Professional Artists</span>
+          <span>Professional Artist</span>
           <span class="w-px h-3 bg-white/20"></span>
           <span>Custom Design</span>
         </div>
@@ -54,7 +54,7 @@
         <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-text-primary mb-6 leading-[1.15]">Crafted with Precision,<br> Built on Trust</h2>
         <p class="text-base md:text-lg leading-relaxed text-text-secondary mb-10">We believe every tattoo is a story waiting to be told. With over a decade of combined experience, our team brings your vision to life using premium techniques and the highest safety standards.</p>
         <div class="grid grid-cols-2 gap-x-8 gap-y-6">
-          <div><p class="text-sm font-semibold text-text-primary mb-1">Professional Artists</p><p class="text-[13px] text-text-muted">Experienced & certified</p></div>
+          <div><p class="text-sm font-semibold text-text-primary mb-1">Professional Artist</p><p class="text-[13px] text-text-muted">Experienced & certified</p></div>
           <div><p class="text-sm font-semibold text-text-primary mb-1">Sterile Equipment</p><p class="text-[13px] text-text-muted">Safety guaranteed</p></div>
           <div><p class="text-sm font-semibold text-text-primary mb-1">Custom Design</p><p class="text-[13px] text-text-muted">Your vision, our art</p></div>
           <div><p class="text-sm font-semibold text-text-primary mb-1">Premium Experience</p><p class="text-[13px] text-text-muted">Comfort & luxury</p></div>
@@ -85,7 +85,7 @@
           <div class="overflow-hidden transition-all duration-200 ease-out" :class="open ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'">
             <div class="border-t border-[#e5e5e5] pt-6 mb-6">
               <div class="grid grid-cols-2 gap-3">
-                @foreach(['Private Tattoo Studio', 'Sterile Equipment', 'Professional Artists', 'Custom Design Session', 'Comfortable Workspace', 'Free Consultation'] as $item)
+                @foreach(['Private Tattoo Studio', 'Sterile Equipment', 'Professional Artist', 'Custom Design Session', 'Comfortable Workspace', 'Free Consultation'] as $item)
                   <div class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-text-muted mt-2 flex-shrink-0"></span><span class="text-[14px] text-text-secondary">{{ $item }}</span></div>
                 @endforeach
               </div>
@@ -95,7 +95,7 @@
             <span x-text="open ? 'Show Less' : 'Learn More'" />
             <svg :class="open ? 'rotate-180' : 'rotate-0'" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </button>
-          <a href="{{ route('booking.create') }}?service=studio" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+          <a href="{{ route('booking.create') }}?service=studio" class="mt-5 inline-flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
             Book Studio Tattoo
           </a>
         </div>
@@ -122,7 +122,7 @@
             <span x-text="open ? 'Show Less' : 'Learn More'" />
             <svg :class="open ? 'rotate-180' : 'rotate-0'" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </button>
-          <a href="{{ route('booking.create') }}?service=home" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+          <a href="{{ route('booking.create') }}?service=home_service" class="mt-5 inline-flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
             Book Home Service
           </a>
         </div>
@@ -141,7 +141,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
       {{-- Large Card --}}
-      <a href="{{ route('shop.category', 'machine') }}" class="group relative md:row-span-2 overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop') }}?category=machine" class="group relative md:row-span-2 overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[3/4] md:h-full overflow-hidden">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Machine" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
@@ -153,23 +153,23 @@
         </div>
       </a>
       <div class="flex flex-col gap-4 md:gap-5">
-        <a href="{{ route('shop.category', 'ink') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+        <a href="{{ route('shop') }}?category=ink" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
           <div class="aspect-[16/9] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Ink" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Tattoo Ink</h3><p class="text-[13px] text-white/70">Rich pigmentation, lasting results</p></div>
         </a>
-        <a href="{{ route('shop.category', 'needles') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+        <a href="{{ route('shop') }}?category=needles" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
           <div class="aspect-[16/9] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Needle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Tattoo Needle</h3><p class="text-[13px] text-white/70">Sterile, professional grade</p></div>
         </a>
       </div>
-      <a href="{{ route('shop.category', 'kitset') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop') }}?category=kitset" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[4/3] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Kit Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Kit Set</h3><p class="text-[13px] text-white/70">Complete starter kits</p></div>
       </a>
-      <a href="{{ route('shop.category', 'furniture') }}" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop') }}?category=furniture" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[4/3] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Furniture" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Furniture</h3><p class="text-[13px] text-white/70">Studio essentials</p></div>
@@ -279,7 +279,7 @@
           <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">With over a decade of experience, our featured artist brings a unique blend of technical precision and creative vision to every piece.</p>
           <p class="text-base md:text-lg text-white/70 leading-relaxed">Each design is carefully crafted to tell a personal story while maintaining the highest standards of quality and safety.</p>
         </div>
-        <a href="{{ route('gallery.index') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">
+        <a href="{{ route('gallery.index') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
           View Portfolio
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
@@ -322,73 +322,60 @@
       <p class="text-[13px] text-text-muted tracking-wide">Google Reviews &middot; International Client &middot; Fine Line &middot; Blackwork &middot; Realism &middot; Returning Client</p>
     </div>
 
-    {{-- 2 Featured Reviews --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
-      <div class="border border-[#e5e5e5] rounded-2xl p-8 md:p-10 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
-        <div class="flex gap-1 mb-6">
-          @for($i = 0; $i < 5; $i++)
-            <svg class="w-4 h-4" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          @endfor
-        </div>
-        <p class="text-base md:text-lg text-text-primary leading-relaxed italic mb-6">"The experience exceeded my expectations. The attention to detail and professionalism made me feel comfortable from start to finish."</p>
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-1.svg') }}" alt="Michael R." class="w-full h-full object-cover" /></div>
-          <div><p class="text-sm font-semibold text-text-primary">Michael R.</p><p class="text-[11px] uppercase tracking-[0.15em] text-text-muted">Australia &bull; Fine Line</p></div>
-        </div>
+    {{-- Reviews --}}
+    @if($reviews->isEmpty())
+      <div class="text-center py-12">
+        <p class="text-[15px] text-text-muted">No reviews yet.</p>
       </div>
-      <div class="border border-[#e5e5e5] rounded-2xl p-8 md:p-10 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
-        <div class="flex gap-1 mb-6">
-          @for($i = 0; $i < 5; $i++)
-            <svg class="w-4 h-4" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          @endfor
+    @else
+      {{-- Featured Reviews (first 2) --}}
+      @if($reviews->count() > 0)
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
+          @foreach($reviews->take(2) as $review)
+            <div class="border border-[#e5e5e5] rounded-2xl p-8 md:p-10 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
+              <div class="flex gap-1 mb-6">
+                @for($i = 0; $i < 5; $i++)
+                  <svg class="w-4 h-4" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                @endfor
+              </div>
+              <p class="text-base md:text-lg text-text-primary leading-relaxed italic mb-6">"{{ $review->content }}"</p>
+              <div class="flex items-center gap-4">
+                @if($review->photo)
+                  <div class="w-12 h-12 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('storage/' . $review->photo) }}" alt="{{ $review->name }}" class="w-full h-full object-cover" loading="lazy" /></div>
+                @else
+                  <div class="w-12 h-12 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-' . $loop->iteration . '.svg') }}" alt="{{ $review->name }}" class="w-full h-full object-cover" /></div>
+                @endif
+                <div><p class="text-sm font-semibold text-text-primary">{{ $review->name }}</p><p class="text-[11px] uppercase tracking-[0.15em] text-text-muted">{{ $review->country }}@if($review->tattoo_style) &bull; {{ $review->tattoo_style }}@endif</p></div>
+              </div>
+            </div>
+          @endforeach
         </div>
-        <p class="text-base md:text-lg text-text-primary leading-relaxed italic mb-6">"I came to Bali for vacation and left with a tattoo I'll cherish forever. The entire process felt personal and professional."</p>
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-2.svg') }}" alt="Sarah L." class="w-full h-full object-cover" /></div>
-          <div><p class="text-sm font-semibold text-text-primary">Sarah L.</p><p class="text-[11px] uppercase tracking-[0.15em] text-text-muted">Germany &bull; Realism</p></div>
-        </div>
-      </div>
-    </div>
+      @endif
 
-    {{-- 3 Smaller Reviews --}}
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-      <div class="border border-[#e5e5e5] rounded-xl p-5 md:p-6 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
-        <div class="flex gap-0.5 mb-4">
-          @for($i = 0; $i < 5; $i++)
-            <svg class="w-3 h-3" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          @endfor
+      {{-- Smaller Reviews (3, 4, 5) --}}
+      @if($reviews->count() > 2)
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          @foreach($reviews->skip(2)->take(3) as $review)
+            <div class="border border-[#e5e5e5] rounded-xl p-5 md:p-6 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
+              <div class="flex gap-0.5 mb-4">
+                @for($i = 0; $i < 5; $i++)
+                  <svg class="w-3 h-3" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                @endfor
+              </div>
+              <p class="text-[14px] text-text-secondary leading-relaxed italic mb-4">"{{ $review->content }}"</p>
+              <div class="flex items-center gap-3">
+                @if($review->photo)
+                  <div class="w-10 h-10 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('storage/' . $review->photo) }}" alt="{{ $review->name }}" class="w-full h-full object-cover" loading="lazy" /></div>
+                @else
+                  <div class="w-10 h-10 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-' . $loop->iteration . '.svg') }}" alt="{{ $review->name }}" class="w-full h-full object-cover" /></div>
+                @endif
+                <div><p class="text-[13px] font-semibold text-text-primary">{{ $review->name }}</p><p class="text-[10px] uppercase tracking-[0.15em] text-text-muted">{{ $review->country }}@if($review->tattoo_style) &bull; {{ $review->tattoo_style }}@endif</p></div>
+              </div>
+            </div>
+          @endforeach
         </div>
-        <p class="text-[14px] text-text-secondary leading-relaxed italic mb-4">"From consultation to the final session, everything was handled with care. I couldn't be happier with the result."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-3.svg') }}" alt="Kevin T." class="w-full h-full object-cover" /></div>
-          <div><p class="text-[13px] font-semibold text-text-primary">Kevin T.</p><p class="text-[10px] uppercase tracking-[0.15em] text-text-muted">Indonesia &bull; Session: 8hrs</p></div>
-        </div>
-      </div>
-      <div class="border border-[#e5e5e5] rounded-xl p-5 md:p-6 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
-        <div class="flex gap-0.5 mb-4">
-          @for($i = 0; $i < 5; $i++)
-            <svg class="w-3 h-3" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          @endfor
-        </div>
-        <p class="text-[14px] text-text-secondary leading-relaxed italic mb-4">"Professional from start to finish. The studio is clean, the artists are skilled, and the result speaks for itself."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-4.svg') }}" alt="James W." class="w-full h-full object-cover" /></div>
-          <div><p class="text-[13px] font-semibold text-text-primary">James W.</p><p class="text-[10px] uppercase tracking-[0.15em] text-text-muted">United States &bull; Bali Visit</p></div>
-        </div>
-      </div>
-      <div class="border border-[#e5e5e5] rounded-xl p-5 md:p-6 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
-        <div class="flex gap-0.5 mb-4">
-          @for($i = 0; $i < 5; $i++)
-            <svg class="w-3 h-3" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          @endfor
-        </div>
-        <p class="text-[14px] text-text-secondary leading-relaxed italic mb-4">"I've had tattoos done in several countries, and this was by far the best experience. Truly world-class artistry."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full overflow-hidden bg-[#e5e5e5] flex-shrink-0"><img src="{{ asset('images/reviews/review-5.svg') }}" alt="Anna K." class="w-full h-full object-cover" /></div>
-          <div><p class="text-[13px] font-semibold text-text-primary">Anna K.</p><p class="text-[10px] uppercase tracking-[0.15em] text-text-muted">Japan &bull; Returning Client</p></div>
-        </div>
-      </div>
-    </div>
+      @endif
+    @endif
   </div>
 </section>
 

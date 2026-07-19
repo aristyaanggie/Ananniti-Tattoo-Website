@@ -4,6 +4,89 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v9.1.0 — Admin CMS Finalization & Content Management Polish
+**Date**: 2026-07-19
+**Status**: Beta (Admin CMS Finalized)
+
+**What's New**:
+- Sprint 20–21: Database finalization, form fixes, homepage reviews, admin polish
+- Dashboard Quick Actions fixed (link to correct pages)
+- Currency symbol standardized (Rp) across all admin forms
+- Autofocus added to first field of all admin forms
+- Homepage reviews now dynamic from database
+- Review field mismatch fixed (customer_name → name)
+- Upload area z-index fix (relative wrapper)
+- Single Artist consistency (wording audit)
+
+**Changes**:
+- Fixed `admin/dashboard.blade.php` (Quick Action links)
+- Fixed `admin/products/form.blade.php` (currency + autofocus)
+- Fixed `admin/portfolio/form.blade.php` (autofocus)
+- Fixed `admin/reviews/form.blade.php` (autofocus)
+- Fixed `admin/content/form.blade.php` (autofocus)
+- Fixed `app/Http/Controllers/HomeController.php` (dynamic reviews)
+- Fixed `app/Http/Controllers/Admin/AdminReviewController.php` (field name)
+- Fixed `resources/views/pages/home.blade.php` (dynamic reviews section)
+- Added `.ai/journal/sprint-21.md`
+
+---
+
+### v9.0.0 — Database Finalization & Production Foundation
+**Date**: 2026-07-19
+**Status**: Beta (Production Foundation Complete)
+
+**What's New**:
+- Sprint 20: 11 backend audit tasks completed
+- Database audit: 16 tables, 13 FKs, 23+ indexes verified
+- Model audit: 16 models verified (fillable, casts, relations)
+- Form request fixes: customer_name → name, added missing validation rules
+- Seeder audit: All 7 seeders idempotent (firstOrCreate)
+- MySQL compatibility: All migrations verified
+- ERD readiness: Cardinality matrix added
+- Production checklist: .env.example updated with MySQL config
+- Storage audit: All upload/delete operations verified
+
+**Changes**:
+- Fixed `app/Http/Requests/StoreReviewRequest.php` (field name fix)
+- Fixed `app/Http/Requests/UpdateReviewRequest.php` (field name fix)
+- Updated `app/Http/Requests/StorePortfolioRequest.php` (added validation)
+- Updated `.env.example` (MySQL configuration)
+- Updated `.ai/erd.md` (cardinality, MySQL audit)
+- Updated `.ai/database-review.md` (v3.0)
+- Updated `.ai/deployment.md` (production checklist)
+- Added `.ai/journal/sprint-20.md`
+
+---
+
+### v8.3.0 — UX, Navigation & Conversion Finalization
+**Date**: 2026-07-19
+**Status**: Beta (UX Finalization Complete)
+
+**What's New**:
+- Sprint 19.1: 11 UX/navigation tasks completed
+- Hero secondary button visibility improved
+- Service CTAs redesigned (smaller, editorial)
+- Landing page shop category links fixed (no more 404)
+- Shop category navigation chips added
+- Product inquiry requires Name + Country before WhatsApp
+- Navbar uses named routes (works from any page)
+- WhatsApp number fetched from database (navbar, footer, shop-category)
+- Button focus states added to all CTAs
+- Currency symbols fixed (Rp instead of $)
+
+**Changes**:
+- Updated `resources/views/pages/home.blade.php` (secondary button, service CTAs, shop links)
+- Updated `resources/views/pages/shop.blade.php` (category chips, currency)
+- Updated `resources/views/pages/shop-detail.blade.php` (inquiry validation, currency)
+- Rewritten `resources/views/components/layout/navbar.blade.php` (named routes, dynamic WA)
+- Updated `resources/views/components/layout/footer.blade.php` (dynamic WA number)
+- Updated `resources/views/pages/shop-category.blade.php` (dynamic WA number)
+- Updated `resources/views/auth/login.blade.php` (focus states)
+- Updated `resources/views/pages/booking.blade.php` (focus states)
+- Added `.ai/journal/sprint-19.1.md`
+
+---
+
 ### v8.2.0 — Final QA & Production Readiness
 **Date**: 2026-07-18
 **Status**: Beta (Stabilization Complete)
@@ -979,7 +1062,7 @@ Jika issues found di production:
 
 ## Version Tracking
 
-Current version: **v4.9.0**
+Current version: **v9.0.0**
 
 ```
 Legend:
@@ -1027,6 +1110,19 @@ Legend:
 | v4.7.0  | 2026-07-16 | ✅ Complete | Portfolio Management (Admin CMS) |
 | v4.8.0  | 2026-07-16 | ✅ Complete | Booking Management Dashboard |
 | v4.9.0  | 2026-07-16 | ✅ Complete | Booking Detail & Status Management |
+| v5.0.0  | 2026-07-17 | ✅ Complete | Review Management CMS |
+| v5.1.0  | 2026-07-17 | ✅ Complete | Contact Inbox Management |
+| v5.2.0  | 2026-07-17 | ✅ Complete | Admin Auth Fix |
+| v5.3.0  | 2026-07-17 | ✅ Complete | Database Schema & Admin CRUD Stabilization |
+| v5.4.0  | 2026-07-17 | ✅ Complete | Admin UX Polish |
+| v6.0.0  | 2026-07-17 | ✅ Complete | Booking Flow & WhatsApp Integration |
+| v6.1.0  | 2026-07-17 | ✅ Complete | Booking CTA Optimization & WhatsApp Fix |
+| v6.2.0  | 2026-07-17 | ✅ Complete | Booking CTA Visual Polish |
+| v7.0.0  | 2026-07-17 | ✅ Complete | Public Shop & Product Detail (Dynamic) |
+| v7.1.0  | 2026-07-17 | ✅ Complete | Shop Category Experience & Product WhatsApp |
+| v8.0.0  | 2026-07-17 | ✅ Complete | Gallery Experience & Portfolio Detail |
+| v8.1.0  | 2026-07-17 | ✅ Complete | Global Navigation & CTA Consistency |
+| v8.2.0  | 2026-07-18 | ✅ Complete | Final QA & Production Readiness (8 bugs fixed) |
 
 ## Semantic Versioning
 
@@ -1048,6 +1144,7 @@ v0.2.0: Add portfolio gallery component
 
 ---
 
-**Last Updated**: 2026-07-15
-**Current Version**: v2.0.0-beta
-**Next**: Final Landing Page Review & QA
+**Last Updated**: 2026-07-19
+**Current Version**: v9.0.0
+**Status**: PRODUCTION READY — Database & Backend Finalized
+**Next**: Payment Integration → Content → Deployment

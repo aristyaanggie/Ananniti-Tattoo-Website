@@ -54,7 +54,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="md:col-span-2">
                         <label for="title" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Title</label>
-                        <input type="text" id="title" name="title" value="{{ old('title', $portfolio->title ?? '') }}" required
+                        <input type="text" id="title" name="title" value="{{ old('title', $portfolio->title ?? '') }}" required autofocus
                             class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('title') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. Japanese Dragon Sleeve" />
                         @error('title')
@@ -114,8 +114,8 @@
             {{-- Section 2: Image --}}
             <div class="bg-white border border-[#e5e5e5] rounded-2xl p-6 md:p-8">
                 <h3 class="text-[15px] font-bold text-[#1a1a1a] mb-6" style="font-family: var(--font-heading);">Image</h3>
-                <div>
-                    <input type="file" name="image" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="image-input" x-on:change="handleImage($event)" />
+                <div class="relative">
+                    <input type="file" name="image" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10" id="image-input" x-on:change="handleImage($event)" />
                     <label for="image-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer" :class="imagePreview ? 'border-[#1a1a1a]/20' : ''">
                         <template x-if="imagePreview">
                             <div class="relative">

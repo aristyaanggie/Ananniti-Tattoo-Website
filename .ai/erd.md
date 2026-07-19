@@ -1,249 +1,245 @@
 # Entity Relationship Diagram
 
-Dokumentasi Entity Relationship Diagram untuk Ananniti Tattoo Bali.
+Dokumentasi ERD Ananniti Tattoo Bali — sesuai implementasi.
+
+**Last Updated**: 2026-07-19
+**Based on**: v9.0.0 (Sprint 20 — Database Finalization)
+**MySQL Compatible**: ✅ YES
+**Audit Status**: ✅ PRODUCTION READY
 
 ## ERD Overview
 
-Database dirancang dengan relasi berikut untuk mendukung functional requirements.
+Database menggunakan 16 tabel custom (dari 20 migration files) dengan relasi berikut.
 
 ## Entities & Relationships
 
 ### Core Entities
 
-#### users
-- id (PK)
-- name
-- email (UNIQUE)
-- password
-- phone
-- address
-- city
-- postal_code
-- role (user, admin, staff)
-- email_verified_at
-- created_at
-- updated_at
-- deleted_at (soft delete)
+#### users (16 columns)
+- id, name, email (UNIQUE), email_verified_at, password, role, phone, avatar, is_active, last_login_at, created_at, updated_at, deleted_at (soft delete)
 
 **Relationships**:
-- Has many bookings
-- Has many orders
-- Has many addresses
-- Has many reviews
+- hasMany → bookings
+- hasOne → artist_profiles (optional, via user_id)
 
-#### portfolio_items
-- id (PK)
-- title
-- description
-- category_id (FK)
-- artist_id (FK)
-- image_url
-- tattoo_style
-- size
-- placement
-- created_at
-- updated_at
+#### sections (11 columns)
+- id, slug (UNIQUE), title, subtitle, description, image, background_color, display_order, is_visible, meta (JSON), timestamps
 
 **Relationships**:
-- Belongs to category
-- Belongs to artist (user)
-- Has many reviews
+- hasMany → section_items
 
-#### bookings
-- id (PK)
-- user_id (FK)
-- artist_id (FK)
-- booking_date
-- booking_time
-- service_type
-- design_details
-- status (pending, confirmed, completed, cancelled)
-- price
-- notes
-- created_at
-- updated_at
+#### section_items (11 columns)
+- id, section_id (FK → sections), type, title, description, icon, image, display_order, is_visible, timestamps
 
 **Relationships**:
-- Belongs to user
-- Belongs to artist (user)
-- Has many payments (if split)
+- belongsTo → sections
 
-#### products
-- id (PK)
-- name
-- description
-- category_id (FK)
-- price
-- quantity_in_stock
-- sku
-- image_url
-- created_at
-- updated_at
+#### categories (9 columns)
+- id, name, slug (UNIQUE), description, image, type (product|gallery), display_order, is_visible, timestamps
 
 **Relationships**:
-- Belongs to category
-- Has many order_items
-- Has many reviews
+- hasMany → products
+- hasMany → portfolio_items
 
-#### orders
-- id (PK)
-- user_id (FK)
-- order_number (UNIQUE)
-- status (pending, processing, shipped, delivered, cancelled)
-- total_price
-- shipping_address_id (FK)
-- payment_method
-- payment_status
-- created_at
-- updated_at
+#### products (24 columns)
+- id, category_id (FK), name, slug (UNIQUE), description, short_description, price, compare_price, sku (UNIQUE), thumbnail, stock_quantity, stock_status, minimum_stock, published_at, badge_id (FK), is_featured, is_visible, meta_title, meta_description, display_order, timestamps, deleted_at (soft delete)
 
 **Relationships**:
-- Belongs to user
-- Has many order_items
-- Belongs to shipping address
+- belongsTo → categories
+- belongsTo → product_badges (optional)
+- hasMany → product_galleries
+- hasMany → reviews
 
-#### order_items
-- id (PK)
-- order_id (FK)
-- product_id (FK)
-- quantity
-- price_per_item
-- subtotal
-- created_at
+#### product_badges (7 columns)
+- id, name, slug (UNIQUE), background_color, text_color, created_at
 
 **Relationships**:
-- Belongs to order
-- Belongs to product
+- hasMany → products
 
-#### categories
-- id (PK)
-- name
-- description
-- type (portfolio, product)
-- slug
-- created_at
+#### artist_profiles (14 columns)
+- id, user_id (FK → users, nullable), name, slug (UNIQUE), photo, biography, specialization, experience_years, instagram, display_order, is_featured, is_visible, timestamps
 
 **Relationships**:
-- Has many portfolio_items or products
+- belongsTo → users (optional)
+- hasMany → portfolio_items
+- hasMany → bookings
+- hasMany → reviews
 
-#### reviews
-- id (PK)
-- user_id (FK)
-- reviewable_id (polymorphic FK)
-- reviewable_type (portfolio_item, product)
-- rating
-- comment
-- created_at
-- updated_at
+#### portfolio_items (16 columns)
+- id, category_id (FK, nullable), artist_id (FK, nullable), title, slug (UNIQUE), description, image, tattoo_style, placement, session_hours, is_featured, display_order, is_visible, timestamps
 
 **Relationships**:
-- Belongs to user
-- Belongs to reviewable (polymorphic)
+- belongsTo → categories (optional)
+- belongsTo → artist_profiles (optional)
 
-#### payments
-- id (PK)
-- order_id or booking_id (FK)
-- amount
-- payment_method
-- status (pending, completed, failed)
-- transaction_id
-- created_at
-- updated_at
+#### bookings (17 columns)
+- id, user_id (FK, nullable), artist_id (FK, nullable), service_type, name, email, phone, booking_date, booking_time, design_description, placement, size, status, whatsapp_sent_at, notes, timestamps
 
 **Relationships**:
-- Belongs to order or booking
+- belongsTo → users (optional)
+- belongsTo → artist_profiles (optional)
+- hasMany → booking_services
 
-#### user_addresses
-- id (PK)
-- user_id (FK)
-- street
-- city
-- postal_code
-- province
-- country
-- is_default
-- created_at
+#### booking_services (6 columns)
+- id, booking_id (FK), service_name, price, duration, created_at
 
 **Relationships**:
-- Belongs to user
+- belongsTo → bookings
+
+#### reviews (14 columns)
+- id, product_id (FK, nullable), artist_id (FK, nullable), name, country, tattoo_style, rating, content, photo, is_featured, display_order, is_visible, timestamps
+
+**Relationships**:
+- belongsTo → products (optional)
+- belongsTo → artist_profiles (optional)
+
+#### contacts (11 columns)
+- id, name, email, phone, subject, message, status, is_read, timestamps
+
+**Relationships**: standalone
+
+#### settings (6 columns)
+- id, key (UNIQUE), value, group, type, timestamps
+
+**Relationships**: standalone
+
+#### audit_logs (11 columns)
+- id, user_id (FK, nullable), action, model_type, model_id, old_values (JSON), new_values (JSON), ip_address, user_agent, created_at
+
+**Relationships**:
+- belongsTo → users (optional)
+
+#### whatsapp_templates (6 columns)
+- id, name, type, template, is_active, timestamps
+
+**Relationships**: standalone
 
 ## ERD Diagram (ASCII)
 
 ```
-users
-├── bookings
-├── orders
-├── addresses
-├── reviews
-└── artists (role = 'artist')
+users ─────────────┬───────────────────────────┐
+  │                │                           │
+  │ 1:N            │ 1:1 (optional)            │ 1:N (optional)
+  │                │                           │
+  ▼                ▼                           ▼
+bookings      artist_profiles ─────────── portfolio_items
+  │ 1:N         │ 1:N    │ 1:N              │ N:1 (optional)
+  │             │        │                   │
+  ▼             │        │                   ▼
+booking_services│        │               categories
+                │        │               │ 1:N
+                ▼        ▼               │
+            reviews      │               ▼
+            │ N:1 (opt)  │           products
+            ▼            │           │ 1:N    │ N:1 (optional)
+          products       │           │        ▼
+                         │           ▼    product_badges
+                         │    product_galleries
 
-portfolio_items
-├── categories
-├── users (artist_id)
-└── reviews
-
-products
-├── categories
-├── order_items
-└── reviews
-
-bookings
-├── users
-├── artists (user)
-└── payments
-
-orders
-├── users
-├── order_items
-├── products (through order_items)
-└── payments
-
-categories
-├── portfolio_items
-└── products
-
-reviews (polymorphic)
-├── users
-├── portfolio_items
-└── products
+sections ────────────────┐
+  │ 1:N                  │
+  ▼                      │
+section_items            │
+                         │
+contacts (standalone)    │
+settings (standalone)    │
+audit_logs → users (opt) │
+whatsapp_templates (standalone)
 ```
 
-## Constraints & Rules
+## Foreign Keys (Complete)
 
-- `users.email` - Unique, not nullable
-- `products.sku` - Unique, not nullable
-- `orders.order_number` - Unique, not nullable
-- `users.deleted_at` - Soft delete support
-- Foreign keys dengan ON DELETE CASCADE dimana sesuai
-- Foreign keys dengan ON UPDATE CASCADE
-
-## Indexes
-
-- `users.email` - UNIQUE INDEX
-- `orders.user_id` - INDEX
-- `bookings.user_id` - INDEX
-- `portfolio_items.category_id` - INDEX
-- `products.category_id` - INDEX
-- `order_items.order_id` - INDEX
-- `order_items.product_id` - INDEX
-- `bookings.booking_date` - INDEX
+| FK | From | To | On Delete | On Update |
+|----|------|----|-----------|-----------|
+| section_items.section_id | section_items | sections | CASCADE | CASCADE |
+| products.category_id | products | categories | RESTRICT | CASCADE |
+| products.badge_id | products | product_badges | SET NULL | CASCADE |
+| product_galleries.product_id | product_galleries | products | CASCADE | CASCADE |
+| artist_profiles.user_id | artist_profiles | users | SET NULL | CASCADE |
+| portfolio_items.category_id | portfolio_items | categories | SET NULL | CASCADE |
+| portfolio_items.artist_id | portfolio_items | artist_profiles | SET NULL | CASCADE |
+| bookings.user_id | bookings | users | SET NULL | CASCADE |
+| bookings.artist_id | bookings | artist_profiles | SET NULL | CASCADE |
+| booking_services.booking_id | booking_services | bookings | CASCADE | CASCADE |
+| reviews.product_id | reviews | products | SET NULL | CASCADE |
+| reviews.artist_id | reviews | artist_profiles | SET NULL | CASCADE |
+| audit_logs.user_id | audit_logs | users | SET NULL | CASCADE |
 
 ## Normalization
 
 Database dinormalisasi hingga 3NF (Third Normal Form):
-- Menghindari data redundancy
-- Menjaga data integrity
-- Memaksimalkan query efficiency
+- 1NF: Atomic columns, no repeating groups
+- 2NF: All non-key columns depend on full primary key
+- 3NF: No transitive dependencies
 
-## Future Considerations
+Denormalization applied:
+- bookings menyimpan name, email, phone langsung (guest booking)
+- reviews menyimpan name, country langsung (non-registered clients)
+- products memiliki thumbnail terpisah dari product_galleries (performance)
 
-- [TO BE DEFINED] - Analytics tables
-- [TO BE DEFINED] - Audit log tables
-- [TO BE DEFINED] - Message/notification tables
-- [TO BE DEFINED] - Activity log tables
+## Cardinality Matrix
+
+| Entity A | Relationship | Entity B | Cardinality | FK Column | Nullable |
+|----------|-------------|----------|-------------|-----------|----------|
+| users | hasMany | bookings | 1:N | bookings.user_id | YES |
+| users | hasOne | artist_profiles | 1:1 | artist_profiles.user_id | YES |
+| users | hasMany | audit_logs | 1:N | audit_logs.user_id | YES |
+| sections | hasMany | section_items | 1:N | section_items.section_id | NO |
+| categories | hasMany | products | 1:N | products.category_id | NO |
+| categories | hasMany | portfolio_items | 1:N | portfolio_items.category_id | YES |
+| product_badges | hasMany | products | 1:N | products.badge_id | YES |
+| products | hasMany | product_galleries | 1:N | product_galleries.product_id | NO |
+| products | hasMany | reviews | 1:N | reviews.product_id | YES |
+| artist_profiles | hasMany | portfolio_items | 1:N | portfolio_items.artist_id | YES |
+| artist_profiles | hasMany | bookings | 1:N | bookings.artist_id | YES |
+| artist_profiles | hasMany | reviews | 1:N | reviews.artist_id | YES |
+| bookings | hasMany | booking_services | 1:N | booking_services.booking_id | NO |
+
+## Audit Findings (Sprint 20)
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Foreign Keys | ✅ | 13 FK constraints, all correctly defined |
+| Cascade Rules | ✅ | RESTRICT on categories (prevents orphan products), CASCADE on children, SET NULL on optional parents |
+| Nullable | ✅ | Optional FKs are nullable, required FKs are NOT NULL |
+| Unique | ✅ | email, slugs, sku, settings.key all UNIQUE |
+| Indexes | ✅ | 23+ performance indexes, 5 composite indexes |
+| Soft Delete | ✅ | users, products use softDeletes |
+| Timestamps | ✅ | All main tables have timestamps; junction tables (booking_services, product_galleries, audit_logs) use only created_at |
+| MySQL Compatible | ✅ | All column types, enums, JSON, foreign keys work with MySQL 5.7+ |
+| Normalization | ✅ | 3NF with intentional denormalization for performance |
+| Redundant Relations | ✅ | None found |
+
+## Indexes
+
+### Primary Indexes
+- Semua tabel: id — PRIMARY KEY, AUTO_INCREMENT
+
+### Unique Indexes
+- users.email, products.slug, products.sku, categories.slug, artist_profiles.slug, settings.key, portfolio_items.slug
+
+### Performance Indexes (23+)
+| Table | Column(s) | Type |
+|-------|-----------|------|
+| products | category_id, badge_id, is_visible, is_featured, display_order, published_at, stock_quantity | INDEX |
+| portfolio_items | category_id, artist_id, is_featured, display_order | INDEX |
+| bookings | user_id, artist_id, status, booking_date | INDEX |
+| reviews | product_id, artist_id, is_featured, rating | INDEX |
+| section_items | section_id | INDEX |
+| audit_logs | user_id, [model_type, model_id] | INDEX/COMPOSITE |
+| contacts | status | INDEX |
+
+### Composite Indexes (5)
+| Table | Columns | Reason |
+|-------|---------|--------|
+| products | [category_id, is_visible, display_order] | Category listing |
+| products | [is_featured, is_visible, display_order] | Featured products |
+| portfolio_items | [category_id, is_visible, display_order] | Gallery listing |
+| bookings | [status, booking_date] | Calendar query |
+| reviews | [is_visible, is_featured, display_order] | Display query |
 
 ## Notes
 
-- Diagram lengkap akan dibuat dengan tool seperti Lucidchart atau dbdiagram.io
-- Semua relationships harus di-define di Eloquent models
+- Semua relationships diimplementasikan di Eloquent models
 - Gunakan migrations untuk schema management
+- ERD visual dapat dibuat menggunakan dbdiagram.io atau Lucidchart

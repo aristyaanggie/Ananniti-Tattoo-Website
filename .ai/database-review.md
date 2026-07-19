@@ -557,9 +557,24 @@ Database SIAP untuk tahap Migration. Semua tabel, field, indexes, dan relationsh
 
 ---
 
+## Extra Migrations (Post v2.0)
+
+Dua migration tambahan ditambahkan setelah database design final:
+
+| Migration | Table | Change | Date |
+|-----------|-------|--------|------|
+| 2026_07_17_043338_add_status_to_contacts_table | contacts | Add `status` column (string(20), DEFAULT 'unread') + index | 2026-07-17 |
+| 2026_07_17_101524_add_slug_to_portfolio_items_table | portfolio_items | Add `slug` column (string, UNIQUE) | 2026-07-17 |
+
+**Total migration files**: 20 (3 Laravel default + 15 core + 2 extra)
+
+---
+
 ## Changelog
 
 | Version | Date       | Changes                                                                                                                                                        |
 | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | v1.0    | 2026-07-16 | Initial database architecture (15 tables)                                                                                                                      |
 | v2.0    | 2026-07-16 | Final refinement: +thumbnail, +stock_quantity, +minimum_stock, +published_at, +artist_id on reviews, +whatsapp_templates, composite indexes, soft delete audit |
+| v2.1    | 2026-07-17 | Post-migration: +contacts.status, +portfolio_items.slug                                                                                                        |
+| v3.0    | 2026-07-19 | Sprint 20 Database Finalization: Full audit passed, MySQL compatibility verified, ERD readiness confirmed                                                      |

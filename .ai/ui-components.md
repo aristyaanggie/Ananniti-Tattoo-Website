@@ -1,275 +1,255 @@
 # UI Components
 
-Inventory dan dokumentasi UI components untuk Ananniti Tattoo Bali.
+Inventory dan dokumentasi UI components Ananniti Tattoo Bali.
 
-## Kategori Components
+**Last Updated**: 2026-07-18
+**Based on**: v8.2.0 (Sprint 19 — Final QA & Production Readiness)
 
-### Basic UI Components
+## Component Architecture
 
-#### Button
-- Primary button
-- Secondary button
-- Danger button
-- Button dengan icon
-- Button sizes (small, medium, large)
-- Button states (normal, hover, active, disabled)
+```
+resources/views/components/
+├── ui/                    # Basic UI components (5 files)
+├── layout/                # Layout components (5 files)
+├── shop/                  # Shop components (3 files)
+└── icon/                  # Icon components (3 files)
+```
 
-Status: [TO BE DESIGNED]
+Total: **16 reusable Blade components**
 
-#### Input Fields
-- Text input
-- Email input
-- Password input
-- Number input
-- Textarea
-- Select dropdown
-- Checkbox
-- Radio button
-- Toggle switch
+---
 
-Status: [TO BE DESIGNED]
+## UI Components
 
-#### Cards
-- Basic card
-- Card dengan image
-- Card dengan actions
-- Card hover effects
+### Button (`components/ui/button.blade.php`)
+**Status**: ✅ IMPLEMENTED
 
-Status: [TO BE DESIGNED]
+Variants:
+- Primary (black background, white text)
+- Secondary (white background, black text)
 
-#### Forms
-- Form layout
-- Form validation
-- Error messages
-- Success messages
-- Form sections
+Sizes: sm, md, lg
 
-Status: [TO BE DESIGNED]
+Props (via @props):
+- `variant` — primary | secondary (default: primary)
+- `size` — sm | md | lg (default: md)
+- `href` — URL for link button (optional)
 
-#### Modals
-- Alert modal
-- Confirmation modal
-- Form modal
-- Modal sizes
+States: normal, hover (scale 1.02), active (scale 0.98), focus (ring-2)
 
-Status: [TO BE DESIGNED]
+### Button with Icon (`components/ui/button-with-icon.blade.php`)
+**Status**: ✅ IMPLEMENTED
 
-#### Alerts
-- Success alert
-- Error alert
-- Warning alert
-- Info alert
-- Alert dengan close button
+Combines button + Lucide icon component.
 
-Status: [TO BE DESIGNED]
+Props (via @props):
+- `variant` — primary | secondary (default: primary)
+- `size` — sm | md | lg (default: md)
+- `icon` — icon component name (default: 'message-circle')
+- `iconSize` — icon size class (default: 'w-5 h-5')
+- `href` — URL for link button (optional)
 
-#### Badges
-- Primary badge
-- Secondary badge
-- Status badges
-- Badge dengan icon
+### Link (`components/ui/link.blade.php`)
+**Status**: ✅ IMPLEMENTED
 
-Status: [TO BE DESIGNED]
+Styled link dengan focus states dan optional external icon.
 
-#### Pagination
-- Number pagination
-- Previous/Next pagination
+Props (via @props):
+- `href` — URL (required)
+- `external` — boolean, open in new tab (default: false)
+
+### Delete Modal (`components/ui/delete-modal.blade.php`)
+**Status**: ✅ IMPLEMENTED (Sprint 14.11, updated Sprint 19)
+
+Delete confirmation modal dengan dynamic action label.
+
+Props (via @props):
+- `id` — modal identifier (required)
+- `title` — modal title (default: 'Confirm Delete')
+- `message` — confirmation message (required)
+- `action` — delete URL/route (required)
+- `actionLabel` — button label (default: 'Delete')
+
+### Status Badge (`components/ui/status-badge.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Reusable badge untuk status indicators.
+
+Props (via @props):
+- `status` — status string (required)
+- `type` — badge type/category (default: 'default')
+
+Color mapping: pending (yellow), confirmed (green), completed (blue), cancelled (red), published (green), draft (gray).
+
+---
+
+## Layout Components
+
+### Navbar (`components/layout/navbar.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Sticky dark navbar dengan Alpine.js mobile menu.
+
+Features:
+- Dark theme (#0a0a0a background, #f5f5f0 text)
+- Logo placeholder (AT box)
+- Center navigation (desktop)
+- Mobile hamburger menu (Alpine.js)
+- Sticky positioning (z-50)
+- CTA: "Consult via WhatsApp" + "View Our Works"
+
+Menu items: Home, Services, Shop, Gallery, Artists
+
+### Footer (`components/layout/footer.blade.php`)
+**Status**: ✅ IMPLEMENTED (Sprint 11)
+
+4-column editorial luxury footer.
+
+Sections:
+1. Brand (logo + name + description)
+2. Quick Links (6 anchor links)
+3. Studio Information (address, hours, phone, email)
+4. Connect (Instagram, WhatsApp, TikTok, Facebook)
+5. Bottom Bar (copyright + "Made with passion in Bali")
+
+Responsive: 4 columns → 2×2 → 1 column
+
+### Container (`components/layout/container.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Responsive container: max-w-6xl, responsive horizontal padding.
+
+### Section (`components/layout/section.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Section spacing wrapper with variants: sm, md, lg.
+
+### Section Title (`components/layout/section-title.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Section title + optional subtitle + alignment.
+
+Props (via @props):
+- `title` — section title (required)
+- `subtitle` — optional subtitle
+- `align` — left | center | right (default: 'center')
+- `size` — sm | md | lg (default: 'md')
+
+---
+
+## Shop Components
+
+### Product Card (`components/shop/product-card.blade.php`)
+**Status**: ✅ IMPLEMENTED (Sprint 12.1)
+
+Reusable product card.
+
+Props (via @props):
+- `image` — product image path
+- `title` — product name
+- `category` — category name
+- `price` — formatted price
+- `badge` — optional badge text
+- `href` — link to product detail
+
+Features:
+- Responsive image with lazy loading
+- Badge display
+- Price formatting with Rp currency (Sprint 19 fix)
+- Hover effects (scale, border)
+
+### Category Filter (`components/shop/category-filter.blade.php`)
+**Status**: ✅ IMPLEMENTED (Sprint 12.2)
+
+Alpine.js-powered horizontal category filter.
+
+Props (via @props):
+- `categories` — array of categories
+- `active` — currently active category slug
+
+Features:
+- Horizontal scroll on mobile
+- aria-pressed states
+- Alpine.js state management
+
+### Loading Skeleton (`components/shop/loading-skeleton.blade.php`)
+**Status**: ✅ IMPLEMENTED (Sprint 12.7)
+
+Loading placeholder for product grids.
+
+Props (via @props):
+- `count` — number of skeleton items (default: 6)
+
+---
+
+## Icon Components
+
+### Message Circle (`components/icon/message-circle.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Lucide MessageCircle icon with size variants.
+
+Props: size (sm = 16px, md = 20px, lg = 24px)
+
+### WhatsApp (`components/icon/whatsapp.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+WhatsApp icon.
+
+### Instagram (`components/icon/instagram.blade.php`)
+**Status**: ✅ IMPLEMENTED
+
+Instagram icon.
+
+---
+
+## Admin Components
+
+### Admin Layout (`layouts/admin.blade.php`)
+**Status**: ✅ IMPLEMENTED (Sprint 14.6)
+
+Admin layout with sidebar navigation.
+
+Features:
+- Sidebar with Lucide icons
 - Active state indicators
+- Responsive: sidebar → top nav on mobile
+- Stats dashboard
+- Quick actions
 
-Status: [TO BE DESIGNED]
+### Public Layout (`layouts/app.blade.php`)
+**Status**: ✅ IMPLEMENTED
 
-#### Tooltips
-- Tooltip positioning
-- Tooltip styles
-- Tooltip animations
+Public layout with navbar + footer components.
 
-Status: [TO BE DESIGNED]
-
-### Layout Components
-
-#### Navigation
-- Main navigation bar
-- Mobile navigation (hamburger menu)
-- Breadcrumb navigation
-- Sidebar navigation
-
-Status: [TO BE DESIGNED]
-
-#### Headers
-- Page header
-- Section header
-- Hero header
-
-Status: [TO BE DESIGNED]
-
-#### Footers
-- Main footer
-- Footer dengan links
-- Footer dengan newsletter signup
-
-Status: [TO BE DESIGNED]
-
-#### Containers
-- Page container
-- Section container
-- Grid layouts
-
-Status: [TO BE DESIGNED]
-
-#### Sidebars
-- Collapsible sidebar
-- Sticky sidebar
-
-Status: [TO BE DESIGNED]
-
-### Feature Components
-
-#### Gallery
-- Image gallery grid
-- Lightbox viewer
-- Image carousel
-- Gallery filters
-
-Status: [TO BE DESIGNED]
-
-#### Portfolio
-- Portfolio item card
-- Portfolio grid
-- Portfolio detail page
-
-Status: [TO BE DESIGNED]
-
-#### Booking
-- Booking form
-- Date picker
-- Time picker
-- Booking confirmation
-
-Status: [TO BE DESIGNED]
-
-#### Shop
-- Product card
-- Product grid
-- Shopping cart
-- Checkout form
-
-Status: [TO BE DESIGNED]
-
-#### Testimonials
-- Testimonial card
-- Testimonial slider
-- Star rating
-
-Status: [TO BE DESIGNED]
-
-#### Team
-- Team member card
-- Team grid
-- Team member profile
-
-Status: [TO BE DESIGNED]
-
-### Section Components
-
-#### Hero Section
-- Hero dengan image
-- Hero dengan video
-- Hero dengan call-to-action
-
-Status: [TO BE DESIGNED]
-
-#### About Section
-- About dengan image
-- About dengan content
-- About dengan stats
-
-Status: [TO BE DESIGNED]
-
-#### Services Section
-- Services grid
-- Service item card
-- Services list
-
-Status: [TO BE DESIGNED]
-
-#### Contact Section
-- Contact form
-- Contact information
-- Map integration
-
-Status: [TO BE DESIGNED]
-
-#### FAQ Section
-- FAQ accordion
-- FAQ list
-- Expandable items
-
-Status: [TO BE DESIGNED]
-
-#### Newsletter Section
-- Newsletter signup
-- Email input
-- Subscription confirmation
-
-Status: [TO BE DESIGNED]
+---
 
 ## Component States
 
-### Interactive States
+### Interactive States (Implemented)
 - Default
-- Hover
-- Active
-- Focused
+- Hover (scale, color change)
+- Active (scale down)
+- Focused (ring-2 ring-offset-2)
 - Disabled
-- Loading
 
-### Responsive States
-- Mobile
-- Tablet
-- Desktop
+### Data States (Implemented)
+- Empty state (all admin pages)
+- Loading state (skeleton components)
 
-### Data States
-- Empty state
-- Loading state
-- Error state
-- Success state
+---
 
-## Accessibility Requirements
+## Accessibility
 
-- [ ] Keyboard navigation
-- [ ] Screen reader support
-- [ ] Color contrast compliance
-- [ ] Focus indicators
-- [ ] ARIA labels
-- [ ] Semantic HTML
+- [x] Keyboard navigation on all interactive elements
+- [x] ARIA labels on mobile menu
+- [x] aria-pressed on category filter
+- [x] Focus indicators (ring-2 ring-offset-2)
+- [x] Semantic HTML throughout
+- [x] Color contrast WCAG AA
 
-## Performance Considerations
+## Naming Convention
 
-- [TO BE DEFINED] - Lazy loading strategy
-- [TO BE DEFINED] - Image optimization
-- [TO BE DEFINED] - Component code splitting
-
-## Reusable Component Library
-
-Semua reusable components akan disimpan di:
-```
-resources/views/components/
-├── ui/                 # Basic UI components
-├── layout/             # Layout components
-└── sections/           # Section components
-```
-
-## Component Naming Convention
-
-- Gunakan PascalCase untuk component names
-- Descriptive dan semantic names
-- Contoh: `<x-button />`, `<x-hero-section />`
-
-## Usage Documentation
-
-Setiap component akan didokumentasikan dengan:
-- Component name
-- Props/attributes
-- Usage examples
-- States dan variations
-- Accessibility notes
+- File: kebab-case (`button.blade.php`, `product-card.blade.php`)
+- Usage: `<x-ui.button />`, `<x.shop.product-card />`
+- Namespace: folder-based (`ui.`, `layout.`, `shop.`, `icon.`)

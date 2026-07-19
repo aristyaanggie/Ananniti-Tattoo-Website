@@ -84,7 +84,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="md:col-span-2">
                         <label for="name" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Product Name</label>
-                        <input type="text" id="name" name="name" value="{{ old('name', $product->name ?? '') }}" required
+                        <input type="text" id="name" name="name" value="{{ old('name', $product->name ?? '') }}" required autofocus
                             class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('name') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. Wireless Tattoo Machine" />
                         @error('name')
@@ -135,7 +135,7 @@
                     <div>
                         <label for="price" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Price</label>
                         <div class="relative">
-                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[14px] text-[#999999]">$</span>
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[14px] text-[#999999]">{{ config('ananniti.payment.currency_symbol', 'Rp') }}</span>
                             <input type="number" step="0.01" id="price" name="price" value="{{ old('price', $product->price ?? '0.00') }}" required
                                 class="w-full pl-8 pr-4 py-3 bg-[#fafafa] border {{ $errors->has('price') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                                 placeholder="0.00" />
@@ -182,7 +182,7 @@
                     <div>
                         <label class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Thumbnail</label>
                         <div class="relative">
-                            <input type="file" name="thumbnail" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="thumbnail-input" x-on:change="handleThumbnail($event)" />
+                            <input type="file" name="thumbnail" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10" id="thumbnail-input" x-on:change="handleThumbnail($event)" />
                             <label for="thumbnail-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer" :class="thumbnailPreview ? 'border-[#1a1a1a]/20' : ''">
                                 <template x-if="thumbnailPreview">
                                     <div class="relative">
@@ -209,7 +209,7 @@
                     <div>
                         <label class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Gallery</label>
                         <div class="relative">
-                            <input type="file" name="gallery[]" accept="image/jpeg,image/png,image/webp" multiple class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="gallery-input" x-on:change="handleGallery($event)" />
+                            <input type="file" name="gallery[]" accept="image/jpeg,image/png,image/webp" multiple class="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10" id="gallery-input" x-on:change="handleGallery($event)" />
                             <label for="gallery-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer">
                                 <svg class="w-8 h-8 mx-auto text-[#cccccc] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z"></path></svg>
                                 <p class="text-[13px] text-[#666666] font-medium">Drop images here</p>

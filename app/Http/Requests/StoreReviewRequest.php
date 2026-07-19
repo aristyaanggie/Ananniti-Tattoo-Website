@@ -16,8 +16,9 @@ class StoreReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customer_name' => ['required', 'string', 'max:255'],
-            'artist_id' => ['required', 'exists:artist_profiles,id'],
+            'name' => ['required', 'string', 'max:255'],
+            'artist_id' => ['nullable', 'exists:artist_profiles,id'],
+            'product_id' => ['nullable', 'exists:products,id'],
             'rating' => ['required', 'integer', 'min:1', 'max:5'],
             'content' => ['required', 'string'],
             'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
@@ -25,16 +26,17 @@ class StoreReviewRequest extends FormRequest
             'tattoo_style' => ['nullable', 'string', 'max:100'],
             'is_featured' => ['boolean'],
             'is_visible' => ['boolean'],
+            'display_order' => ['nullable', 'integer', 'min:0'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'customer_name.required' => 'Customer name is required.',
-            'customer_name.max' => 'Customer name must not exceed 255 characters.',
-            'artist_id.required' => 'Please select an artist.',
+            'name.required' => 'Customer name is required.',
+            'name.max' => 'Customer name must not exceed 255 characters.',
             'artist_id.exists' => 'Selected artist does not exist.',
+            'product_id.exists' => 'Selected product does not exist.',
             'rating.required' => 'Rating is required.',
             'rating.integer' => 'Rating must be a whole number.',
             'rating.min' => 'Rating must be at least 1.',

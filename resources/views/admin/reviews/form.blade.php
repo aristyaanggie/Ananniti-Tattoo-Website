@@ -54,11 +54,11 @@
                 <h3 class="text-[15px] font-bold text-[#1a1a1a] mb-6" style="font-family: var(--font-heading);">Basic Information</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="md:col-span-2">
-                        <label for="customer_name" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Customer Name</label>
-                        <input type="text" id="customer_name" name="customer_name" value="{{ old('customer_name', optional($review)->name ?? '') }}" required
-                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('customer_name') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                        <label for="name" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Customer Name</label>
+                        <input type="text" id="name" name="name" value="{{ old('name', optional($review)->name ?? '') }}" required autofocus
+                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('name') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. John Smith" />
-                        @error('customer_name')
+                        @error('name')
                             <p class="text-[12px] text-[#ef4444] mt-1.5">{{ $message }}</p>
                         @enderror
                     </div>
@@ -134,8 +134,8 @@
             {{-- Section 5: Photo --}}
             <div class="bg-white border border-[#e5e5e5] rounded-2xl p-6 md:p-8">
                 <h3 class="text-[15px] font-bold text-[#1a1a1a] mb-6" style="font-family: var(--font-heading);">Photo</h3>
-                <div>
-                    <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="photo-input" x-on:change="handlePhoto($event)" />
+                <div class="relative">
+                    <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10" id="photo-input" x-on:change="handlePhoto($event)" />
                     <label for="photo-input" class="block border-2 border-dashed border-[#e5e5e5] rounded-xl p-8 text-center hover:border-[#cccccc] transition-colors duration-200 cursor-pointer" :class="photoPreview ? 'border-[#1a1a1a]/20' : ''">
                         <template x-if="photoPreview">
                             <div class="relative">

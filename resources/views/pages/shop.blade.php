@@ -17,10 +17,26 @@
   </div>
 </section>
 
+{{-- ═══════════════ CATEGORY NAVIGATION CHIPS ═══════════════ --}}
+<section class="bg-white border-b border-[#e5e5e5] sticky top-16 z-20" x-data="{ activeCategory: new URLSearchParams(window.location.search).get('category') || '' }" x-init="$nextTick(() => { if (activeCategory) { const el = document.getElementById('cat-' + activeCategory); if (el) { setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300); } } })">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 py-4">
+    <div class="flex gap-2 overflow-x-auto pb-1 scrollbar-hide flex-shrink-0">
+      @foreach($categories as $cat)
+        <a href="#cat-{{ $cat->slug }}"
+           @click.prevent="activeCategory = '{{ $cat->slug }}'; document.getElementById('cat-{{ $cat->slug }}')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
+           :class="activeCategory === '{{ $cat->slug }}' ? 'bg-[#1a1a1a] text-white' : 'bg-[#f5f5f0] text-[#666666] hover:bg-[#e5e5e5]'"
+           class="px-4 py-2 text-[12px] font-medium rounded-full whitespace-nowrap transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+          {{ $cat->name }}
+        </a>
+      @endforeach
+    </div>
+  </div>
+</section>
+
 {{-- ═══════════════ ALL CATEGORIES ═══════════════ --}}
 @foreach($categories as $category)
 @php $categoryProducts = $productsByCategory[$category->id] ?? collect(); @endphp
-<section class="{{ $loop->even ? 'bg-[#f5f5f0]' : 'bg-white' }}">
+<section id="cat-{{ $category->slug }}" class="{{ $loop->even ? 'bg-[#f5f5f0]' : 'bg-white' }}">
   <div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32">
 
     <div class="flex items-end justify-between mb-10 md:mb-14">
@@ -57,7 +73,7 @@
             </div>
             <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">{{ $category->name }}</p>
             <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">{{ $product->name }}</h3>
-            <p class="text-[13px] font-semibold text-text-primary">${{ number_format($product->price, 2) }}</p>
+            <p class="text-[13px] font-semibold text-text-primary">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format($product->price, 0, ',', '.') }}</p>
           </a>
         @endforeach
       </div>
