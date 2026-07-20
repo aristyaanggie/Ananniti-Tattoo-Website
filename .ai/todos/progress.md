@@ -86,6 +86,11 @@ Tracking progress pengembangan Ananniti Tattoo Bali.
 | 20.4 - Homepage Review System Integration Fix | ✅ Complete | 100% | 2026-07-19 | 2026-07-19 |
 | 20.5 - Homepage Reviews Root Cause Fix | ✅ Complete | 100% | 2026-07-19 | 2026-07-19 |
 | 21 - Admin CMS Finalization & Content Management Polish | ✅ Complete | 100% | 2026-07-19 | 2026-07-19 |
+| 22 - Production Content Readiness & UI Polish | ✅ Complete | 100% | 2026-07-20 | 2026-07-20 |
+| 22.1 - QA Manual Fixes (Production Blocking) | ✅ Complete | 100% | 2026-07-20 | 2026-07-20 |
+| 22.2 - Product Gallery UX Refactor + Shop Navigation Fix | ✅ Complete | 100% | 2026-07-20 | 2026-07-20 |
+| 22.3 - Product Gallery Architecture + Homepage Shop Navigation Final Fix | ✅ Complete | 100% | 2026-07-20 | 2026-07-20 |
+| 22.4 - Product Gallery Final Fix + Shop Category Navigation Final Fix | ✅ Complete | 100% | 2026-07-20 | 2026-07-20 |
 
 ## Sprint 00 Achievements
 
@@ -691,12 +696,12 @@ All documentation available in `.ai/` folder:
 
 ---
 
-**Last Updated**: 2026-07-19
-**Status**: PRODUCTION READY (v9.1.0)
-**Current Phase**: Admin CMS Polish Complete
-**Completion**: 60+ sprints complete
-**Next**: Production Content → Deployment
-**Current Version**: v9.1.0
+**Last Updated**: 2026-07-20
+**Status**: PRODUCTION READY (v9.6.0)
+**Current Phase**: QA Complete — Production Content Ready
+**Completion**: 65+ sprints complete
+**Next**: Payment Integration → MySQL Migration → Deployment
+**Current Version**: v9.6.0
 
 ## Hari Ini (2026-07-15)
 
@@ -913,3 +918,90 @@ GET /admin/content       → AdminSectionController@index
 ✓ Routes: 50 active
 ✓ Migrations: 20/20 ran
 ```
+
+## Hari Ini (2026-07-20) — Sprint 22–22.4: Production Content Readiness & QA
+
+### Sprint Yang Diselesaikan
+| Sprint | Deskripsi | Status |
+|--------|-----------|--------|
+| 22 | Production Content Readiness & UI Polish — CTA standardization, footer readability, gradient polish, hero/artist fallback, product spacing, gallery masonry, WhatsApp single source | ✅ |
+| 22.1 | QA Manual Fixes (Production Blocking) — Shop category auto-scroll, admin placeholder readability, product gallery 50+ photos, review star bug (CRITICAL), footer settings audit, CTA audit, gradient polish | ✅ |
+| 22.2 | Product Gallery UX Refactor + Shop Navigation Fix — Unlimited gallery upload, responsive grid (2/4/6 col), photo counter, clear all, drag-drop, add more images, hash-based shop navigation | ✅ |
+| 22.3 | Product Gallery Architecture + Shop Navigation Final Fix — File accumulation via FormData fetch, layout restructure (Upload→Counter→Add More→Clear All→Grid) | ✅ |
+| 22.4 | Product Gallery Final Fix + Shop Navigation Final Fix — Full 10-layer architecture audit confirmed unlimited gallery support; all 6 category links verified working | ✅ |
+
+### Critical Bugs Fixed
+| Bug | Severity | Description | Sprint |
+|-----|----------|-------------|--------|
+| Review Star Bug | CRITICAL | Homepage always showed ★★★★★ regardless of rating | 22.1 |
+| Gallery File Accumulation | HIGH | Only last batch of files submitted; previous batches lost | 22.3 |
+| Footer Hardcoded Values | HIGH | Address, email, hours, social media hardcoded instead of Settings | 22.1 |
+| Shop Category Scroll | MEDIUM | Homepage → Shop didn't auto-scroll to category | 22.1 |
+
+### Files Changed (Unique)
+- `resources/views/pages/home.blade.php` — CTA standard, hash anchors, dynamic stars, average rating
+- `resources/views/pages/shop.blade.php` — Hash-based navigation + scroll-mt-20
+- `resources/views/pages/shop-detail.blade.php` — CTA standard, price spacing
+- `resources/views/pages/shop-category.blade.php` — Inline WhatsApp removed → controller
+- `resources/views/pages/gallery.blade.php` — CTA standard
+- `resources/views/pages/booking.blade.php` — CTA standard
+- `resources/views/pages/portfolio-detail.blade.php` — CTA standard
+- `resources/views/pages/artist-profile.blade.php` — CTA standard
+- `resources/views/components/layout/footer.blade.php` — Dynamic settings, readability
+- `resources/views/components/layout/navbar.blade.php` — No changes
+- `resources/views/components/shop/product-card.blade.php` — Price spacing
+- `resources/views/admin/products/form.blade.php` — Complete gallery UX rewrite (Sprint 22.2/22.3)
+- `resources/views/admin/reviews/form.blade.php` — Placeholder readability
+- `resources/views/admin/portfolio/form.blade.php` — Placeholder readability
+- `resources/views/admin/content/form.blade.php` — Placeholder readability
+- `resources/views/admin/bookings/show.blade.php` — Placeholder readability
+- `resources/views/admin/bookings/index.blade.php` — Placeholder readability
+- `resources/views/admin/contacts/index.blade.php` — Placeholder readability
+- `resources/views/admin/reviews/index.blade.php` — Placeholder readability
+- `resources/views/admin/portfolio/index.blade.php` — Placeholder readability
+- `app/Http/Controllers/HomeController.php` — Average rating computation
+- `app/Http/Controllers/ShopController.php` — WhatsApp number in category view
+- `app/Http/Requests/StoreProductRequest.php` — File size 5MB→20MB
+- `app/Http/Requests/UpdateProductRequest.php` — File size 5MB→20MB
+- `resources/css/app.css` — No changes needed
+
+### Build Status Terakhir
+```
+✓ npm run build:          0 errors, 0 warnings (4.46s)
+✓ php artisan optimize:   config ✓ events ✓ routes ✓ views ✓
+✓ php artisan view:cache: Blade templates cached successfully
+✓ CSS: 108.80 kB (gzip 18.88 kB)
+✓ JS: 92.32 kB (gzip 33.89 kB)
+```
+
+### Product Gallery Architecture (Verified — All Layers)
+```
+Validation (StoreProductRequest)
+  → unlimited photos, 20MB max each ✓
+Controller (AdminProductController)
+  → passes all validated data ✓
+Service (ProductService)
+  → extract gallery → save product → upload ALL ✓
+  → update APPENDS, never replaces ✓
+Database (product_galleries table)
+  → CASCADE delete, no count limit ✓
+Storage (products/gallery/)
+  → UUID filenames, no collision ✓
+Edit
+  → lazy loads ALL existing images ✓
+Delete
+  → iterates ALL, deletes files + records ✓
+Frontend
+  → FormData fetch injects ALL accumulated files ✓
+```
+
+### Shop Category Navigation (Verified — All 6 Categories)
+```
+Machine  → /shop#cat-machine  ✓
+Ink      → /shop#cat-ink      ✓
+Needles  → /shop#cat-needles  ✓
+Furniture → /shop#cat-furniture ✓
+Kit Set  → /shop#cat-kitset   ✓
+View All → /shop              ✓
+```
+Navigation: Browser native anchor → Alpine x-init → scrollIntoView + scroll-mt-20 (no timeouts/hacks) <comparison></comparison>

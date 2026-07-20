@@ -27,9 +27,9 @@ class StoreProductRequest extends FormRequest
             'is_visible' => ['required', 'in:0,1'],
             'meta_title' => ['nullable', 'string', 'max:255'],
             'meta_description' => ['nullable', 'string', 'max:500'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:20480'],
             'gallery' => ['nullable', 'array'],
-            'gallery.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'gallery.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:20480'],
         ];
     }
 
@@ -56,10 +56,10 @@ class StoreProductRequest extends FormRequest
             'meta_description.max' => 'Meta description must not exceed 500 characters.',
             'thumbnail.image' => 'Thumbnail must be an image.',
             'thumbnail.mimes' => 'Thumbnail must be a JPG, JPEG, PNG, or WebP file.',
-            'thumbnail.max' => 'Thumbnail must not exceed 5MB.',
+            'thumbnail.max' => 'Thumbnail must not exceed 20MB.',
             'gallery.*.image' => 'Gallery items must be images.',
             'gallery.*.mimes' => 'Gallery items must be JPG, JPEG, PNG, or WebP files.',
-            'gallery.*.max' => 'Each gallery image must not exceed 5MB.',
+            'gallery.*.max' => 'Each gallery image must not exceed 20MB.',
         ];
     }
 }

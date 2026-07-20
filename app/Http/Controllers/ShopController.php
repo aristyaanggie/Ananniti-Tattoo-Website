@@ -56,11 +56,15 @@ class ShopController extends Controller
             ->orderByDesc('created_at')
             ->get();
 
+        $whatsappNumber = Setting::where('key', 'whatsapp')->value('value') ?? '6281234567890';
+        $whatsappNumber = $this->formatWhatsAppNumber($whatsappNumber);
+
         return view('pages.shop-category', [
             'title' => $categoryModel->name,
             'description' => 'Professional ' . $categoryModel->name . ' equipment carefully selected by Ananniti Tattoo.',
             'category' => $categoryModel,
             'products' => $products,
+            'whatsappNumber' => $whatsappNumber,
         ]);
     }
 

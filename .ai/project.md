@@ -1,8 +1,8 @@
 # Project: Ananniti Tattoo Bali
 
-**Last Updated**: 2026-07-19
-**Current Version**: v9.1.0
-**Status**: PRODUCTION READY — Admin CMS Finalized
+**Last Updated**: 2026-07-20
+**Current Version**: v9.6.0
+**Status**: PRODUCTION READY (QA Complete)
 
 ## Overview
 
@@ -90,6 +90,12 @@ Ananniti Tattoo Bali adalah website production untuk studio tato profesional di 
 | 19–19.1 | 2026-07-18 | ✅ | Final QA & production readiness (8 bugs fixed) |
 | 19.2 | 2026-07-19 | ✅ | UX, navigation & conversion finalization (11 tasks) |
 | 20 | 2026-07-19 | ✅ | Database finalization & production foundation (11 tasks) |
+| 21 | 2026-07-19 | ✅ | Admin CMS finalization & content management polish |
+| 22 | 2026-07-20 | ✅ | Production content readiness & UI polish |
+| 22.1 | 2026-07-20 | ✅ | QA manual fixes (production blocking) |
+| 22.2 | 2026-07-20 | ✅ | Product gallery UX refactor & shop navigation fix |
+| 22.3 | 2026-07-20 | ✅ | Product gallery architecture final fix |
+| 22.4 | 2026-07-20 | ✅ | Product gallery final fix & audit |
 
 ## Project Structure
 
@@ -109,18 +115,23 @@ ananniti-tattoo/
 └── node_modules/           # NPM dependencies
 ```
 
-## Build Metrics (v8.3.0)
+## Build Metrics (v9.6.0)
 
-- CSS: 109.88 kB (gzip 19.03 kB)
+- CSS: 108.80 kB (gzip 18.88 kB)
 - JS: 92.32 kB (gzip 33.89 kB)
-- Build time: ~2.3 seconds
+- Build time: ~4.5 seconds
 - Routes: 50 active, 0 dead
 - Migrations: 20/20 ran
+- Gallery Architecture: All 10 layers verified for unlimited images
 - Errors: 0
 - Warnings: 0
 
 ## Important Notes
 
-- Sprint 19标志着stabilization phase selesai — tidak ada fitur baru di phase ini
-- Phase selanjutnya: Payment Integration → Deployment
-- Semua documentation di folder `.ai/` harus diupdate setiap sprint selesai
+- Sprint 19 marked stabilization phase complete — no new features after this point
+- Sprint 22–22.4 focused solely on UI polish and QA fixes
+- Gallery architecture supports unlimited photos (verified at all 10 layers)
+- Footer, contact, social media now fully dynamic from Settings table
+- Review stars now read from database rating field (critical bug fixed)
+- Next phase: Payment Integration → MySQL Migration → Deployment
+- All documentation in `.ai/` folder must be updated every sprint completion

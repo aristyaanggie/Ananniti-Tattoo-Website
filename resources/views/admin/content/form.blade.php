@@ -66,7 +66,7 @@
                     <div>
                         <label for="title" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Title</label>
                         <input type="text" id="title" name="title" value="{{ old('title', $section->title) }}" required autofocus
-                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('title') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200" />
+                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('title') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200" />
                         @error('title')
                             <p class="text-[12px] text-[#ef4444] mt-1.5">{{ $message }}</p>
                         @enderror
@@ -74,13 +74,13 @@
                     <div>
                         <label for="subtitle" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Subtitle</label>
                         <input type="text" id="subtitle" name="subtitle" value="{{ old('subtitle', $section->subtitle) }}"
-                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="Optional subtitle" />
                     </div>
                     <div>
                         <label for="description" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Description</label>
                         <textarea id="description" name="description" rows="5"
-                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none"
+                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none"
                             placeholder="Section description content...">{{ old('description', $section->description) }}</textarea>
                     </div>
                 </div>

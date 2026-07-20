@@ -80,7 +80,7 @@
         @endif
 
         <div class="mb-8">
-          <p class="text-2xl md:text-3xl font-bold text-text-primary mb-2">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format($product->price, 0, ',', '.') }}</p>
+          <p class="text-2xl md:text-3xl font-bold text-text-primary mb-2">{{ config('ananniti.payment.currency_symbol', 'Rp') }} {{ number_format($product->price, 0, ',', '.') }}</p>
           @if($product->stock_quantity > 0)
             <p class="text-[13px] text-success font-medium">In Stock ({{ $product->stock_quantity }} available)</p>
           @else
@@ -170,7 +170,7 @@
       <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-6">Need Help Choosing?</p>
       <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.1] mb-5" style="font-family: var(--font-heading);">Not Sure What<br> You Need?</h2>
       <p class="text-base text-white/60 leading-relaxed max-w-md mx-auto mb-10">Our team can help you find the perfect equipment for your studio setup and artistic style.</p>
-      <a href="{{ route('booking.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
+      <a href="{{ route('booking.create') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         Consult via WhatsApp
       </a>

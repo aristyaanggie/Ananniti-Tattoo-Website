@@ -39,7 +39,7 @@
         <div class="flex-1 relative">
             <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#999999]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <input type="text" x-model="searchQuery" placeholder="Search by name or phone..."
-                class="w-full pl-11 pr-4 py-3 bg-white border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200" />
+                class="w-full pl-11 pr-4 py-3 bg-white border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200" />
         </div>
 
         {{-- Status Filter --}}

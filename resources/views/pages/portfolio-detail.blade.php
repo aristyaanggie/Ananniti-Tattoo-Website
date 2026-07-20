@@ -111,7 +111,7 @@
 
         {{-- CTA --}}
         <div class="mt-6 space-y-3">
-          <a href="{{ route('booking.create') }}" class="block w-full text-center px-5 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+          <a href="{{ route('booking.create') }}" class="block w-full text-center px-6 py-3 bg-black text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-neutral-800 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
             Book Consultation
           </a>
           <a href="https://wa.me/{{ $whatsappNumber }}?text={{ rawurlencode('Hi, I\'m interested in a tattoo similar to: ' . $portfolio->title) }}" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-5 py-2.5 border border-[#e5e5e5] text-[#1a1a1a] text-sm font-medium rounded-lg hover:border-[#1a1a1a] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">

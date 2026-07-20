@@ -18,12 +18,21 @@
 </section>
 
 {{-- ═══════════════ CATEGORY NAVIGATION CHIPS ═══════════════ --}}
-<section class="bg-white border-b border-[#e5e5e5] sticky top-16 z-20" x-data="{ activeCategory: new URLSearchParams(window.location.search).get('category') || '' }" x-init="$nextTick(() => { if (activeCategory) { const el = document.getElementById('cat-' + activeCategory); if (el) { setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300); } } })">
+<section class="bg-white border-b border-[#e5e5e5] sticky top-16 z-20" x-data="{ activeCategory: '' }" x-init="
+    const hash = window.location.hash.replace('#cat-', '');
+    if (hash) {
+        activeCategory = hash;
+        $nextTick(() => {
+            const el = document.getElementById('cat-' + hash);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    }
+" @hashchange.window="activeCategory = window.location.hash.replace('#cat-', '')">
   <div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 py-4">
     <div class="flex gap-2 overflow-x-auto pb-1 scrollbar-hide flex-shrink-0">
       @foreach($categories as $cat)
         <a href="#cat-{{ $cat->slug }}"
-           @click.prevent="activeCategory = '{{ $cat->slug }}'; document.getElementById('cat-{{ $cat->slug }}')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
+           @click.prevent="activeCategory = '{{ $cat->slug }}'; history.replaceState(null, '', '#cat-{{ $cat->slug }}'); document.getElementById('cat-{{ $cat->slug }}')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"
            :class="activeCategory === '{{ $cat->slug }}' ? 'bg-[#1a1a1a] text-white' : 'bg-[#f5f5f0] text-[#666666] hover:bg-[#e5e5e5]'"
            class="px-4 py-2 text-[12px] font-medium rounded-full whitespace-nowrap transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
           {{ $cat->name }}
@@ -36,7 +45,7 @@
 {{-- ═══════════════ ALL CATEGORIES ═══════════════ --}}
 @foreach($categories as $category)
 @php $categoryProducts = $productsByCategory[$category->id] ?? collect(); @endphp
-<section id="cat-{{ $category->slug }}" class="{{ $loop->even ? 'bg-[#f5f5f0]' : 'bg-white' }}">
+<section id="cat-{{ $category->slug }}" class="{{ $loop->even ? 'bg-[#f5f5f0]' : 'bg-white' }} scroll-mt-20">
   <div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32">
 
     <div class="flex items-end justify-between mb-10 md:mb-14">
@@ -73,7 +82,7 @@
             </div>
             <p class="text-[11px] uppercase tracking-[0.15em] text-text-muted mb-1">{{ $category->name }}</p>
             <h3 class="text-[14px] font-bold text-text-primary mb-1" style="font-family: var(--font-heading);">{{ $product->name }}</h3>
-            <p class="text-[13px] font-semibold text-text-primary">{{ config('ananniti.payment.currency_symbol', 'Rp') }}{{ number_format($product->price, 0, ',', '.') }}</p>
+            <p class="text-[13px] font-semibold text-text-primary">{{ config('ananniti.payment.currency_symbol', 'Rp') }} {{ number_format($product->price, 0, ',', '.') }}</p>
           </a>
         @endforeach
       </div>
@@ -90,7 +99,7 @@
       <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-6">Need Help Choosing?</p>
       <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.1] mb-5" style="font-family: var(--font-heading);">Not Sure What<br> You Need?</h2>
       <p class="text-base text-white/60 leading-relaxed max-w-md mx-auto mb-10">Our team can help you find the perfect equipment for your studio setup and artistic style.</p>
-      <a href="{{ route('booking.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg transition-colors duration-200 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
+      <a href="{{ route('booking.create') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         Consult via WhatsApp
       </a>

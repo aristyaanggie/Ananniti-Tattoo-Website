@@ -107,7 +107,7 @@
                 <form method="POST" action="{{ route('admin.bookings.update', $booking) }}">
                     @csrf
                     @method('PUT')
-                    <textarea name="notes" rows="4" class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none mb-4" placeholder="Add internal notes for this booking...">{{ $booking->notes }}</textarea>
+                    <textarea name="notes" rows="4" class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none mb-4" placeholder="Add internal notes for this booking...">{{ $booking->notes }}</textarea>
                     <input type="hidden" name="status" value="{{ $booking->status }}" />
                     <button type="submit" class="px-5 py-2 bg-[#1a1a1a] text-white text-[13px] font-semibold rounded-lg hover:bg-[#333333] transition-colors duration-200">Save Note</button>
                 </form>

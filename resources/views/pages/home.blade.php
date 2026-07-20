@@ -95,8 +95,8 @@
             <span x-text="open ? 'Show Less' : 'Learn More'" />
             <svg :class="open ? 'rotate-180' : 'rotate-0'" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </button>
-          <a href="{{ route('booking.create') }}?service=studio" class="mt-5 inline-flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
-            Book Studio Tattoo
+          <a href="{{ route('booking.create') }}?service=studio" class="mt-5 inline-flex items-center justify-center gap-2 px-6 py-3 bg-black text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-neutral-800 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
+            Book Studio Service
           </a>
         </div>
       </div>
@@ -122,7 +122,7 @@
             <span x-text="open ? 'Show Less' : 'Learn More'" />
             <svg :class="open ? 'rotate-180' : 'rotate-0'" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </button>
-          <a href="{{ route('booking.create') }}?service=home_service" class="mt-5 inline-flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-medium rounded-lg hover:bg-[#333333] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1a1a1a] focus:ring-offset-2">
+          <a href="{{ route('booking.create') }}?service=home_service" class="mt-5 inline-flex items-center justify-center gap-2 px-6 py-3 bg-black text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-neutral-800 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
             Book Home Service
           </a>
         </div>
@@ -141,7 +141,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
       {{-- Large Card --}}
-      <a href="{{ route('shop') }}?category=machine" class="group relative md:row-span-2 overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop') }}#cat-machine" class="group relative md:row-span-2 overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[3/4] md:h-full overflow-hidden">
           <img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Machine" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
@@ -153,23 +153,23 @@
         </div>
       </a>
       <div class="flex flex-col gap-4 md:gap-5">
-        <a href="{{ route('shop') }}?category=ink" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+        <a href="{{ route('shop') }}#cat-ink" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
           <div class="aspect-[16/9] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Ink" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Tattoo Ink</h3><p class="text-[13px] text-white/70">Rich pigmentation, lasting results</p></div>
         </a>
-        <a href="{{ route('shop') }}?category=needles" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+        <a href="{{ route('shop') }}#cat-needles" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
           <div class="aspect-[16/9] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Needle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Tattoo Needle</h3><p class="text-[13px] text-white/70">Sterile, professional grade</p></div>
         </a>
       </div>
-      <a href="{{ route('shop') }}?category=kitset" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop') }}#cat-kitset" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[4/3] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Kit Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Kit Set</h3><p class="text-[13px] text-white/70">Complete starter kits</p></div>
       </a>
-      <a href="{{ route('shop') }}?category=furniture" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
+      <a href="{{ route('shop') }}#cat-furniture" class="group relative overflow-hidden rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] cursor-pointer">
         <div class="aspect-[4/3] overflow-hidden"><img src="{{ asset('images/hero-placeholder2.jpeg') }}" alt="Tattoo Furniture" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5"><h3 class="text-lg font-bold text-white">Furniture</h3><p class="text-[13px] text-white/70">Studio essentials</p></div>
@@ -181,7 +181,7 @@
       </a>
     </div>
     <div class="text-center mt-16 md:mt-20">
-      <a href="/shop" class="inline-flex items-center justify-center gap-2.5 px-10 py-4 bg-black text-white text-[15px] font-semibold tracking-wide rounded-xl transition-all duration-200 hover:bg-neutral-800 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]">
+      <a href="/shop" class="inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-black text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-neutral-800 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
         Explore Shop
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
       </a>
@@ -190,8 +190,8 @@
 </section>
 
 {{-- ═══════════════ CHAPTER TRANSITION: WHITE → DARK ═══════════════ --}}
-<div class="relative h-16 md:h-24 bg-white overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-[#0a0a0a]/70"></div>
+<div class="relative h-20 md:h-28 bg-white overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-[#0a0a0a]/80"></div>
 </div>
 
 {{-- ═══════════════ GALLERY ═══════════════ --}}
@@ -268,8 +268,11 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-[45%_1fr] gap-10 md:gap-16 lg:gap-20 items-center">
       <div class="group cursor-pointer">
-        <div class="aspect-[3/4] overflow-hidden rounded">
-          <img src="{{ asset('images/artists/featured-artist.svg') }}" alt="Featured Tattoo Artist" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+        <div class="aspect-[3/4] overflow-hidden rounded bg-[#1a1a1a]">
+          <img src="{{ asset('images/artists/featured-artist.svg') }}" alt="Featured Tattoo Artist" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="w-full h-full items-center justify-center" style="display: none;">
+            <span class="text-6xl md:text-7xl font-bold text-white/10" style="font-family: var(--font-heading);">AT</span>
+          </div>
         </div>
       </div>
       <div class="flex flex-col justify-center">
@@ -279,7 +282,7 @@
           <p class="text-base md:text-lg text-white/70 leading-relaxed mb-4">With over a decade of experience, our featured artist brings a unique blend of technical precision and creative vision to every piece.</p>
           <p class="text-base md:text-lg text-white/70 leading-relaxed">Each design is carefully crafted to tell a personal story while maintaining the highest standards of quality and safety.</p>
         </div>
-        <a href="{{ route('gallery.index') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
+        <a href="{{ route('gallery.index') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
           View Portfolio
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
@@ -289,8 +292,8 @@
 </section>
 
 {{-- ═══════════════ CHAPTER TRANSITION: DARK → WHITE ═══════════════ --}}
-<div class="relative h-16 md:h-24 bg-[#0a0a0a] overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/70 to-white/70"></div>
+<div class="relative h-20 md:h-28 bg-[#0a0a0a] overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/80 to-white/80"></div>
 </div>
 
 {{-- ═══════════════ TRUST ═══════════════ --}}
@@ -301,10 +304,16 @@
     <div class="text-center mb-16 md:mb-20">
       <p class="text-[11px] uppercase tracking-[0.25em] text-text-muted mb-6">Trusted By Clients</p>
       <div class="flex items-center justify-center gap-3 mb-4">
-        <span class="text-5xl md:text-6xl font-bold text-text-primary" style="font-family: var(--font-heading);">4.9</span>
+        <span class="text-5xl md:text-6xl font-bold text-text-primary" style="font-family: var(--font-heading);">{{ $averageRating }}</span>
         <div class="flex gap-1">
-          @for($i = 0; $i < 5; $i++)
-            <svg class="w-5 h-5" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          @for($i = 1; $i <= 5; $i++)
+            @if($i <= floor($averageRating))
+              <svg class="w-5 h-5" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            @elseif($i == ceil($averageRating) && fmod($averageRating, 1) >= 0.3)
+              <svg class="w-5 h-5" fill="#D4AF37" viewBox="0 0 24 24"><defs><linearGradient id="half"><stop offset="50%" stop-color="#D4AF37"/><stop offset="50%" stop-color="#e5e5e5"/></linearGradient></defs><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#half)"></polygon></svg>
+            @else
+              <svg class="w-5 h-5" fill="#e5e5e5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            @endif
           @endfor
         </div>
       </div>
@@ -334,8 +343,8 @@
           @foreach($reviews->take(2) as $review)
             <div class="border border-[#e5e5e5] rounded-2xl p-8 md:p-10 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
               <div class="flex gap-1 mb-6">
-                @for($i = 0; $i < 5; $i++)
-                  <svg class="w-4 h-4" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                @for($i = 1; $i <= 5; $i++)
+                  <svg class="w-4 h-4" fill="{{ $i <= $review->rating ? '#D4AF37' : '#e5e5e5' }}" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 @endfor
               </div>
               <p class="text-base md:text-lg text-text-primary leading-relaxed italic mb-6">"{{ $review->content }}"</p>
@@ -358,8 +367,8 @@
           @foreach($reviews->skip(2)->take(3) as $review)
             <div class="border border-[#e5e5e5] rounded-xl p-5 md:p-6 bg-[#fafafa] transition-shadow duration-200 hover:shadow-sm">
               <div class="flex gap-0.5 mb-4">
-                @for($i = 0; $i < 5; $i++)
-                  <svg class="w-3 h-3" fill="#D4AF37" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                @for($i = 1; $i <= 5; $i++)
+                  <svg class="w-3 h-3" fill="{{ $i <= $review->rating ? '#D4AF37' : '#e5e5e5' }}" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 @endfor
               </div>
               <p class="text-[14px] text-text-secondary leading-relaxed italic mb-4">"{{ $review->content }}"</p>
@@ -380,8 +389,8 @@
 </section>
 
 {{-- ═══════════════ CHAPTER TRANSITION: WHITE → DARK ═══════════════ --}}
-<div class="relative h-16 md:h-24 bg-white overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-[#0a0a0a]/70"></div>
+<div class="relative h-20 md:h-28 bg-white overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-[#0a0a0a]/80"></div>
 </div>
 
 {{-- ═══════════════ CONSULTATION ═══════════════ --}}

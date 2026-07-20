@@ -55,7 +55,7 @@
                     <div class="md:col-span-2">
                         <label for="title" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Title</label>
                         <input type="text" id="title" name="title" value="{{ old('title', $portfolio->title ?? '') }}" required autofocus
-                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('title') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('title') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. Japanese Dragon Sleeve" />
                         @error('title')
                             <p class="text-[12px] text-[#ef4444] mt-1.5">{{ $message }}</p>
@@ -99,13 +99,13 @@
                     <div>
                         <label for="tattoo_style" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Tattoo Style</label>
                         <input type="text" id="tattoo_style" name="tattoo_style" value="{{ old('tattoo_style', $portfolio->tattoo_style ?? '') }}"
-                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. Blackwork, Realism" />
                     </div>
                     <div class="md:col-span-2">
                         <label for="description" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Description</label>
                         <textarea id="description" name="description" rows="4"
-                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none"
+                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none"
                             placeholder="Describe the artwork, inspiration, and process...">{{ old('description', $portfolio->description ?? '') }}</textarea>
                     </div>
                 </div>

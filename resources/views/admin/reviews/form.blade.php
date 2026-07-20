@@ -56,7 +56,7 @@
                     <div class="md:col-span-2">
                         <label for="name" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Customer Name</label>
                         <input type="text" id="name" name="name" value="{{ old('name', optional($review)->name ?? '') }}" required autofocus
-                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('name') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('name') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. John Smith" />
                         @error('name')
                             <p class="text-[12px] text-[#ef4444] mt-1.5">{{ $message }}</p>
@@ -65,13 +65,13 @@
                     <div>
                         <label for="country" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Country</label>
                         <input type="text" id="country" name="country" value="{{ old('country', optional($review)->country ?? '') }}"
-                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. Australia" />
                     </div>
                     <div>
                         <label for="tattoo_style" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Tattoo Style</label>
                         <input type="text" id="tattoo_style" name="tattoo_style" value="{{ old('tattoo_style', optional($review)->tattoo_style ?? '') }}"
-                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-[#fafafa] border border-[#e5e5e5] rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200"
                             placeholder="e.g. Blackwork, Realism" />
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                 <div>
                     <label for="content" class="block text-[13px] font-medium text-[#1a1a1a] mb-2">Customer Review</label>
                     <textarea id="content" name="content" rows="6" required
-                        class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('content') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#999999] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none"
+                        class="w-full px-4 py-3 bg-[#fafafa] border {{ $errors->has('content') ? 'border-[#ef4444]' : 'border-[#e5e5e5]' }} rounded-xl text-[14px] text-[#1a1a1a] placeholder:text-[#777777] focus:outline-none focus:border-[#1a1a1a] transition-colors duration-200 resize-none"
                         placeholder="What did the customer say about their experience?">{{ old('content', optional($review)->content ?? '') }}</textarea>
                     @error('content')
                         <p class="text-[12px] text-[#ef4444] mt-1.5">{{ $message }}</p>

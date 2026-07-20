@@ -16,10 +16,14 @@ class HomeController extends Controller
             ->limit(5)
             ->get();
 
+        $averageRating = Review::where('is_visible', true)->avg('rating');
+        $averageRating = $averageRating ? round($averageRating, 1) : 0;
+
         return view('pages.home', [
             'title' => 'Home',
             'description' => 'Ananniti Tattoo Bali - Premium custom tattoo design studio',
             'reviews' => $reviews,
+            'averageRating' => $averageRating,
         ]);
     }
 }

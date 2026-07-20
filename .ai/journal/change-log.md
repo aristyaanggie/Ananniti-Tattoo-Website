@@ -4,6 +4,98 @@ Dokumentasi perubahan dan versioning untuk Ananniti Tattoo Bali.
 
 ## Version History
 
+### v9.6.0 — Product Gallery Final Fix + Shop Category Navigation Final Fix
+**Date**: 2026-07-20
+**Status**: Production Ready (QA Complete)
+
+**What's New**:
+- Sprint 22.4: Full architecture audit confirms unlimited gallery support across all 10 layers
+- Sprint 22.3: Gallery file accumulation fixed — all batches submitted together via FormData fetch
+- Sprint 22.2: Gallery UX redesign — unlimited photos, 6-col grid, add more, clear all
+- Sprint 22.1: 11 QA fixes including critical review star bug, settings audit, CTA standardization
+- Sprint 22: UI polish — CTA standardization, footer readability, gradient transitions
+
+**Architecture Verified**:
+- StoreProductRequest → Controller → Service → Database → Storage → Edit → Delete
+- ALL layers support unlimited gallery images (verified in Sprint 22.4 audit)
+
+**Critical Fixes**:
+- Review stars now read from database (was hardcoded ★★★★★)
+- Gallery file accumulation (was losing previous batches)
+- Footer now fully dynamic from Settings table
+
+**Changes**:
+- See `.ai/todos/progress.md` — "Hari Ini (2026-07-20)" for full file list
+
+---
+
+### v9.5.0 — Product Gallery Architecture + Homepage Shop Navigation Final Fix
+**Date**: 2026-07-20
+**Status**: Production Ready
+
+**What's New**:
+- Sprint 22.3: Gallery file accumulation via FormData fetch
+- submitProductForm handler injects all accumulated File objects
+- Layout restructured: Upload → Counter → Add More → Clear All → Grid
+- Shop navigation verified: all 6 categories use hash anchors + scroll-mt-20
+
+**Build**: 0 errors, 0 warnings
+
+---
+
+### v9.4.0 — Product Gallery UX Refactor + Shop Navigation Fix
+**Date**: 2026-07-20
+**Status**: Production Ready
+
+**What's New**:
+- Sprint 22.2: Complete gallery UX redesign
+- Unlimited photos (no frontend/backend limit)
+- Responsive grid: 2/4/6 columns
+- "X Photos Selected" counter
+- Red × remove button on each thumbnail
+- Clear All button
+- Add More Images button
+- Drag & drop support
+- Shop: hash-based navigation + scroll-mt-20
+
+**Build**: 0 errors, 0 warnings
+
+---
+
+### v9.3.0 — QA Manual Fixes (Production Blocking)
+**Date**: 2026-07-20
+**Status**: Production Ready
+
+**What's New**:
+- Sprint 22.1: 11 QA tasks completed
+- Shop category auto-scroll (hash anchors)
+- Admin form placeholder readability (#999999 → #777777)
+- Product gallery: file size 5MB → 20MB, count display
+- Review star bug fixed (★ from database, not hardcoded)
+- Footer: all values dynamic from Settings table
+- CTA standardization across all pages (audit complete)
+- Gradient transitions smoothed
+
+**Build**: 0 errors, 0 warnings
+
+---
+
+### v9.2.0 — Production Content Readiness & UI Polish
+**Date**: 2026-07-20
+**Status**: Beta (UI Polish Complete)
+
+**What's New**:
+- Sprint 22: Production Content Readiness & UI Polish
+- CTA Standardization: editorial premium style across all pages
+- Footer readability improved (text/70→/80, copyright/40→/50)
+- Gradient transitions smoothed (h-16→h-20, via/70→via/80)
+- Artist image fallback (onerror monogram)
+- Product price spacing (Rp → Rp )
+- Gallery masonry supports mixed portrait+landscape
+- WhatsApp single source via Settings table
+
+**Build**: 0 errors, 0 warnings
+
 ### v9.1.0 — Admin CMS Finalization & Content Management Polish
 **Date**: 2026-07-19
 **Status**: Beta (Admin CMS Finalized)
@@ -1062,7 +1154,7 @@ Jika issues found di production:
 
 ## Version Tracking
 
-Current version: **v9.0.0**
+Current version: **v9.6.0**
 
 ```
 Legend:
@@ -1123,6 +1215,14 @@ Legend:
 | v8.0.0  | 2026-07-17 | ✅ Complete | Gallery Experience & Portfolio Detail |
 | v8.1.0  | 2026-07-17 | ✅ Complete | Global Navigation & CTA Consistency |
 | v8.2.0  | 2026-07-18 | ✅ Complete | Final QA & Production Readiness (8 bugs fixed) |
+| v8.3.0  | 2026-07-19 | ✅ Complete | UX, Navigation & Conversion Finalization |
+| v9.0.0  | 2026-07-19 | ✅ Complete | Database Finalization & Production Foundation |
+| v9.1.0  | 2026-07-19 | ✅ Complete | Admin CMS Finalization & Content Management Polish |
+| v9.2.0  | 2026-07-20 | ✅ Complete | Production Content Readiness & UI Polish |
+| v9.3.0  | 2026-07-20 | ✅ Complete | QA Manual Fixes (Production Blocking) |
+| v9.4.0  | 2026-07-20 | ✅ Complete | Product Gallery UX Refactor + Shop Navigation Fix |
+| v9.5.0  | 2026-07-20 | ✅ Complete | Product Gallery Architecture + Shop Navigation Final Fix |
+| v9.6.0  | 2026-07-20 | ✅ Complete | Product Gallery Final Fix + Shop Category Navigation Final Fix |
 
 ## Semantic Versioning
 
@@ -1144,7 +1244,7 @@ v0.2.0: Add portfolio gallery component
 
 ---
 
-**Last Updated**: 2026-07-19
-**Current Version**: v9.0.0
-**Status**: PRODUCTION READY — Database & Backend Finalized
-**Next**: Payment Integration → Content → Deployment
+**Last Updated**: 2026-07-20
+**Current Version**: v9.6.0
+**Status**: PRODUCTION READY (QA Complete)
+**Next**: Payment Integration → MySQL Migration → Deployment

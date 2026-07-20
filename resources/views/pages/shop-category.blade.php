@@ -1,14 +1,3 @@
-@php
-  $catWhatsappNumber = \App\Models\Setting::where('key', 'whatsapp')->value('value') ?? '6281234567890';
-  $catWhatsappNumber = preg_replace('/[^0-9]/', '', $catWhatsappNumber);
-  if (str_starts_with($catWhatsappNumber, '08')) {
-      $catWhatsappNumber = '62' . substr($catWhatsappNumber, 1);
-  }
-  if (!str_starts_with($catWhatsappNumber, '62')) {
-      $catWhatsappNumber = '62' . $catWhatsappNumber;
-  }
-@endphp
-
 @extends('layouts.app')
 
 @section('content')
@@ -126,8 +115,8 @@
 </section>
 
 {{-- ═══════════════ CHAPTER TRANSITION: WHITE → DARK ═══════════════ --}}
-<div class="relative h-16 md:h-24 bg-white overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-[#0a0a0a]/70"></div>
+<div class="relative h-20 md:h-28 bg-white overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-[#0a0a0a]/80"></div>
 </div>
 
 {{-- ═══════════════ CTA SECTION ═══════════════ --}}
@@ -137,7 +126,7 @@
       <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-6">Need Help Choosing?</p>
       <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.1] mb-5" style="font-family: var(--font-heading);">Not Sure What<br> You Need?</h2>
       <p class="text-base text-white/60 leading-relaxed max-w-md mx-auto mb-10">Our team can help you find the perfect equipment for your studio setup and artistic style.</p>
-      <a href="https://wa.me/{{ $catWhatsappNumber }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-black text-sm font-semibold rounded transition-all duration-200 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">
+      <a href="https://wa.me/{{ $whatsappNumber }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-white/90 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         Consult via WhatsApp
       </a>
